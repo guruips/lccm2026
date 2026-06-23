@@ -1,0 +1,2728 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBT LCC Museum - Aplikasi Persiapan Juara (TKA Mode)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        /* Custom smooth transition */
+        .page-transition {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-50/50 text-slate-800 font-sans min-h-screen flex flex-col antialiased">
+
+    <!-- TOP HEADER -->
+    <header class="bg-slate-900 text-white shadow-md border-b-4 border-amber-500 sticky top-0 z-30 transition-all">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center space-x-3">
+                <div class="p-2 bg-amber-500 rounded-lg text-slate-900 shadow animate-pulse">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-serif font-bold text-lg md:text-xl tracking-tight text-amber-400 flex items-center gap-2">
+                        CBT Cerdas Cermat Museum 
+                        <span class="text-[10px] bg-amber-500/20 text-amber-300 font-sans font-normal px-2 py-0.5 rounded border border-amber-500/30">TKA PRO</span>
+                    </h1>
+                    <p class="text-[10px] md:text-xs text-slate-300">Wadah Latihan Calon Juara Nasional LCCM • system by <a href="https://toer.my.id" target="_blank" class="text-amber-300 hover:underline font-semibold">(@kangtoer)</a></p>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-3 text-sm">
+                <!-- Sound Toggle -->
+                <button id="btn-sound" onclick="toggleSound()" class="p-2 rounded bg-slate-800 hover:bg-slate-700 text-amber-400 border border-slate-700 flex items-center gap-1 transition" title="Aktifkan/Matikan Suara">
+                    <span id="sound-icon">🔊</span>
+                    <span class="hidden md:inline text-xs">Suara</span>
+                </button>
+                <!-- Profile Indicator -->
+                <div class="hidden sm:flex items-center space-x-2 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
+                    <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="font-medium text-xs text-slate-200" id="user-display">Calon Juara Nasional</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN APP WRAPPER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto p-4 md:py-6">
+        
+        <!-- ================= SECTION 1: DASHBOARD ================= -->
+        <section id="section-dashboard" class="page-transition space-y-6">
+            <!-- Hero Banner -->
+            <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden border-l-8 border-amber-500">
+                <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none transform translate-x-12 translate-y-12">
+                    <svg class="w-96 h-96" fill="currentColor" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                </div>
+                <div class="relative z-10 max-w-3xl space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-amber-500 text-slate-950 font-bold px-3 py-1 rounded-full text-[10px] uppercase tracking-widest shadow-sm">Edisi Guru Penggerak</span>
+                        <span class="bg-slate-800 text-amber-400 font-medium px-3 py-1 rounded-full text-[10px] border border-slate-700">system by @kangtoer</span>
+                    </div>
+                    <h2 class="text-2xl md:text-4xl font-serif font-bold text-amber-300">Akselerasi Penguasaan 100+ Soal Variasi TKA LCC Museum!</h2>
+                    <p class="text-slate-300 text-xs md:text-sm leading-relaxed max-w-2xl">
+                        Aplikasi latihan ini mengadaptasi standar CBT TKA dengan navigasi ultra-kompak dan sebaran soal variasi tinggi (HOTS, Hubungan Sebab-Akibat, Pilihan Ganda Kompleks). Membekali calon duta museum dengan keahlian analitis permuseuman, sejarah, dan budaya nusantara.
+                    </p>
+                    <div class="pt-2 flex flex-wrap gap-2">
+                        <button onclick="startQuizMode('simulasi')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-5 py-3 rounded-xl transition shadow-lg transform hover:-translate-y-0.5 flex items-center gap-2 text-xs md:text-sm">
+                            ⚡ Mulai Simulasi Real (50 Soal TKA)
+                        </button>
+                        <button onclick="startQuizMode('santai')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-medium px-5 py-3 rounded-xl transition flex items-center gap-2 text-xs md:text-sm">
+                            📖 Latihan Santai (Semua 100 Soal + Pembahasan)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats & Progress -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-center space-x-3">
+                    <div class="p-2 bg-amber-100 text-amber-700 rounded-lg text-lg">👑</div>
+                    <div>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Skor Terbesar</p>
+                        <h3 class="text-sm md:text-base font-bold text-slate-700" id="stat-high-score">0 / 100</h3>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-center space-x-3">
+                    <div class="p-2 bg-indigo-100 text-indigo-700 rounded-lg text-lg">✍️</div>
+                    <div>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Percobaan Tes</p>
+                        <h3 class="text-sm md:text-base font-bold text-slate-700" id="stat-attempts">0 Kali</h3>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-center space-x-3">
+                    <div class="p-2 bg-emerald-100 text-emerald-700 rounded-lg text-lg">🎯</div>
+                    <div>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Akurasi Benar</p>
+                        <h3 class="text-sm md:text-base font-bold text-slate-700" id="stat-avg-correct">0%</h3>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-center space-x-3">
+                    <div class="p-2 bg-sky-100 text-sky-700 rounded-lg text-lg">📚</div>
+                    <div>
+                        <p class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Database Soal</p>
+                        <h3 class="text-sm md:text-base font-bold text-slate-700" id="stat-total-questions">100 Soal</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic Focus & Utilities -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Topic Selection Card -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 lg:col-span-2 space-y-4">
+                    <h3 class="text-base font-serif font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
+                        <span>🎯</span> Latihan Khusus per Bidang LCCM
+                    </h3>
+                    <p class="text-xs text-slate-500">Pilih salah satu pilar materi di bawah ini untuk menguji secara fokus topik yang ingin dimantapkan:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- Permuseuman -->
+                        <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 hover:bg-amber-50/30 hover:border-amber-300 transition cursor-pointer flex flex-col justify-between space-y-3" onclick="startQuizMode('category', 'Permuseuman')">
+                            <div class="space-y-1">
+                                <span class="bg-amber-100 text-amber-800 text-[9px] font-bold px-2 py-0.5 rounded-full">Pilar 1 (40%)</span>
+                                <h4 class="font-bold text-xs text-slate-800">Permuseuman & Cagar Budaya</h4>
+                                <p class="text-[10px] text-slate-500 leading-relaxed">Aspek etika museum, PP No 66/2015, inventarisasi, fungsi kurasi, tata pameran, serta UU No 11/2010.</p>
+                            </div>
+                            <span class="text-xs font-semibold text-amber-600 flex items-center gap-1">Latih Topik →</span>
+                        </div>
+                        <!-- Kebudayaan -->
+                        <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 hover:bg-emerald-50/30 hover:border-emerald-300 transition cursor-pointer flex flex-col justify-between space-y-3" onclick="startQuizMode('category', 'Kebudayaan')">
+                            <div class="space-y-1">
+                                <span class="bg-emerald-100 text-emerald-800 text-[9px] font-bold px-2 py-0.5 rounded-full">Pilar 2 (30%)</span>
+                                <h4 class="font-bold text-xs text-slate-800">Kebudayaan Nusantara</h4>
+                                <p class="text-[10px] text-slate-500 leading-relaxed">Warisan Budaya Tak Benda (WBTB), sistem kekerabatan adat, rumah tradisional, ritus, dan alat musik kuno.</p>
+                            </div>
+                            <span class="text-xs font-semibold text-emerald-600 flex items-center gap-1">Latih Topik →</span>
+                        </div>
+                        <!-- Sejarah -->
+                        <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 hover:bg-indigo-50/30 hover:border-indigo-300 transition cursor-pointer flex flex-col justify-between space-y-3" onclick="startQuizMode('category', 'Sejarah')">
+                            <div class="space-y-1">
+                                <span class="bg-indigo-100 text-indigo-800 text-[9px] font-bold px-2 py-0.5 rounded-full">Pilar 3 (30%)</span>
+                                <h4 class="font-bold text-xs text-slate-800">Sejarah Perjuangan</h4>
+                                <p class="text-[10px] text-slate-500 leading-relaxed">Kronologi kolonialisme, pahlawan nasional, pergerakan Budi Utomo s.d. diplomasi pasca-proklamasi (KMB).</p>
+                            </div>
+                            <span class="text-xs font-semibold text-indigo-600 flex items-center gap-1">Latih Topik →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Bank Manager Card -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 space-y-4">
+                    <h3 class="text-base font-serif font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
+                        <span>⚙️</span> Portal Bank Soal & Editor
+                    </h3>
+                    <p class="text-xs text-slate-500 font-sans">Tambahkan atau lakukan impor/ekspor soal dengan mudah untuk keperluan ujian luring siswa:</p>
+                    
+                    <div class="space-y-2">
+                        <button onclick="openQuestionModal()" class="w-full py-2 px-3 text-xs font-semibold bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition flex items-center justify-center gap-2">
+                            ➕ Tambah Soal Kustom Baru
+                        </button>
+                        
+                        <div class="grid grid-cols-2 gap-2 pt-1">
+                            <label class="py-1.5 px-2 text-[10px] font-semibold border border-slate-300 text-slate-700 rounded-lg text-center hover:bg-slate-50 transition cursor-pointer block">
+                                📤 Unggah JSON
+                                <input type="file" id="import-file" class="hidden" accept=".json" onchange="importQuestions(event)">
+                            </label>
+                            <button onclick="exportQuestions()" class="py-1.5 px-2 text-[10px] font-semibold border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition">
+                                📥 Unduh JSON
+                            </button>
+                        </div>
+                        
+                        <button onclick="confirmResetQuestions()" class="w-full py-1.5 px-3 text-[10px] font-medium text-red-600 bg-red-50 hover:bg-red-100 rounded-lg transition text-center block">
+                            🔄 Kembalikan ke 100 Soal Default
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 2: TESTING INTERFACE ================= -->
+        <section id="section-quiz" class="page-transition hidden space-y-6">
+            <!-- Test Info Bar -->
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center space-x-3">
+                    <span id="quiz-mode-badge" class="bg-amber-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-full uppercase">Simulasi</span>
+                    <span id="quiz-category-badge" class="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1 rounded-full hidden">Kategori</span>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <div id="quiz-timer-container" class="flex items-center space-x-2 bg-red-50 text-red-700 px-3 py-1.5 rounded-lg font-bold border border-red-100 text-xs md:text-sm">
+                        <span>⏱️</span>
+                        <span id="quiz-timer">45:00</span>
+                    </div>
+                    <button onclick="confirmExitQuiz()" class="text-xs font-semibold text-slate-500 hover:text-red-600 transition flex items-center gap-1">
+                        🚪 Keluar Tes
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Main Panel Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                <!-- Question View (Col-span 3) -->
+                <div class="lg:col-span-3 space-y-4">
+                    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 min-h-[350px] flex flex-col justify-between space-y-6">
+                        <!-- Category Header & Progress Bar -->
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="text-amber-600 font-bold tracking-widest uppercase" id="q-category">Kategori Soal</span>
+                                <span class="text-slate-400 font-medium" id="q-progress">Soal 1 dari 50</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                <div id="q-progress-bar" class="bg-amber-500 h-1.5 rounded-full transition-all duration-300" style="width: 2%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Question Text -->
+                        <div class="space-y-2">
+                            <h3 class="text-base md:text-lg font-serif font-bold text-slate-800 leading-relaxed" id="q-text">
+                                Pertanyaan akan dirender secara dinamis...
+                            </h3>
+                        </div>
+
+                        <!-- Answer Options -->
+                        <div class="grid grid-cols-1 gap-3" id="q-options-container">
+                            <!-- Options -->
+                        </div>
+
+                        <!-- Active Pembahasan (Latihan Santai) -->
+                        <div id="instant-pembahasan" class="hidden bg-emerald-50 border border-emerald-100 p-4 rounded-xl text-xs md:text-sm text-slate-700 space-y-2">
+                            <div class="flex items-center space-x-2 text-emerald-800 font-bold">
+                                <span>💡</span>
+                                <h4>Kunci & Pembahasan Ilmiah:</h4>
+                            </div>
+                            <p id="instant-pembahasan-text"></p>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Action Controls -->
+                    <div class="flex flex-wrap items-center justify-between gap-3">
+                        <button onclick="navigateQuestion(-1)" id="btn-prev" class="px-4 py-2.5 bg-white border border-slate-300 text-slate-700 text-xs font-semibold rounded-xl hover:bg-slate-50 transition flex items-center gap-1">
+                            ← Sebelumnya
+                        </button>
+                        
+                        <button onclick="toggleFlag()" id="btn-flag" class="px-4 py-2.5 bg-amber-50 border border-amber-300 text-amber-800 text-xs font-semibold rounded-xl hover:bg-amber-100 transition flex items-center gap-1">
+                            🚩 Ragu-Ragu
+                        </button>
+                        
+                        <button onclick="navigateQuestion(1)" id="btn-next" class="px-4 py-2.5 bg-slate-900 text-white text-xs font-semibold rounded-xl hover:bg-slate-800 transition flex items-center gap-1">
+                            Selanjutnya →
+                        </button>
+                        
+                        <button onclick="confirmSubmitExam()" id="btn-finish-quiz" class="hidden px-5 py-2.5 bg-emerald-600 text-white text-xs font-bold rounded-xl hover:bg-emerald-700 transition flex items-center gap-1 shadow-lg shadow-emerald-600/10">
+                            💾 Selesaikan Tes
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Navigation Sidebar (TKA Compact Style) -->
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 space-y-4">
+                    <div class="border-b pb-2 flex items-center justify-between">
+                        <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                            Navigasi CBT TKA
+                        </h3>
+                        <span class="text-[9px] bg-slate-100 px-2 py-0.5 rounded font-sans text-slate-500">@kangtoer</span>
+                    </div>
+                    
+                    <!-- Question Grid: Compact Standard TKA (5-column scrollable grid) -->
+                    <div class="grid grid-cols-5 gap-1.5 max-h-60 overflow-y-auto pr-1" id="grid-navigation">
+                        <!-- Tiny Buttons -->
+                    </div>
+
+                    <!-- Legend -->
+                    <div class="border-t pt-3 space-y-2 text-[10px] text-slate-500">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-emerald-500 rounded block"></span>
+                            <span>Sudah Dijawab</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-amber-500 rounded block"></span>
+                            <span>Ragu-Ragu</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-slate-100 border border-slate-300 rounded block"></span>
+                            <span>Belum Dijawab</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 3: DETAILED ANALYSIS & REVIEW ================= -->
+        <section id="section-analysis" class="page-transition hidden space-y-6">
+            <!-- Result Summary Card -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <div class="text-center space-y-3 md:border-r border-slate-100 pr-4">
+                    <h3 class="text-5xl font-serif font-black text-amber-500" id="analysis-score">0</h3>
+                    <p class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Skor Akhir Anda</p>
+                    <div class="inline-flex items-center space-x-2 bg-slate-100 px-3 py-1 rounded-full text-xs font-semibold text-slate-700" id="analysis-time-spent">
+                        ⏱️ Waktu: 00:00
+                    </div>
+                </div>
+                
+                <div class="md:col-span-2 space-y-3">
+                    <span id="analysis-title-badge" class="bg-indigo-100 text-indigo-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Peringkat Hasil</span>
+                    <h2 class="text-lg md:text-xl font-serif font-bold text-slate-800" id="analysis-feedback-title">Hebat!</h2>
+                    <p class="text-slate-600 text-xs leading-relaxed" id="analysis-feedback-desc">
+                        Memuat analisis kelemahan siswa...
+                    </p>
+                    <div class="grid grid-cols-3 gap-2 text-center text-xs pt-1">
+                        <div class="bg-emerald-50 text-emerald-700 p-2 rounded-lg border border-emerald-100">
+                            <div class="font-bold text-base" id="analysis-correct">0</div>
+                            <div class="text-[9px] text-slate-500 uppercase">Benar</div>
+                        </div>
+                        <div class="bg-red-50 text-red-700 p-2 rounded-lg border border-red-100">
+                            <div class="font-bold text-base" id="analysis-wrong">0</div>
+                            <div class="text-[9px] text-slate-500 uppercase">Salah</div>
+                        </div>
+                        <div class="bg-slate-50 text-slate-600 p-2 rounded-lg border border-slate-100">
+                            <div class="font-bold text-base" id="analysis-skipped">0</div>
+                            <div class="text-[9px] text-slate-500 uppercase">Dilewati</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Charts & Category Breakdown -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Topic Performance -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 lg:col-span-2 space-y-4">
+                    <h3 class="text-sm font-serif font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
+                        <span>📊</span> Analisis Penguasaan Materi (Pilar LCCM)
+                    </h3>
+                    
+                    <div class="space-y-4 pt-2">
+                        <!-- Permuseuman -->
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-xs font-medium">
+                                <span class="text-slate-700">Pilar 1: Permuseuman & Cagar Budaya (40%)</span>
+                                <span class="font-bold text-amber-600" id="progress-text-m">0%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                                <div id="progress-bar-m" class="bg-amber-500 h-full rounded-full transition-all duration-1000" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <!-- Kebudayaan -->
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-xs font-medium">
+                                <span class="text-slate-700">Pilar 2: Kebudayaan Nusantara (30%)</span>
+                                <span class="font-bold text-emerald-600" id="progress-text-k">0%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                                <div id="progress-bar-k" class="bg-emerald-500 h-full rounded-full transition-all duration-1000" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <!-- Sejarah -->
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-xs font-medium">
+                                <span class="text-slate-700">Pilar 3: Sejarah Perjuangan Bangsa (30%)</span>
+                                <span class="font-bold text-indigo-600" id="progress-text-s">0%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                                <div id="progress-bar-s" class="bg-indigo-500 h-full rounded-full transition-all duration-1000" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pedagogical Recommendation Box -->
+                    <div class="p-4 bg-amber-50/30 border border-amber-200 rounded-xl space-y-2">
+                        <h4 class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                            💡 Rekomendasi Belajar:
+                        </h4>
+                        <p class="text-[11px] text-slate-600 leading-relaxed" id="pedagogical-recommendation">
+                            Mengolah data...
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Achievements/Badges Unlocked -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 space-y-4">
+                    <h3 class="text-sm font-serif font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
+                        <span>🎖️</span> Lencana Prestasi
+                    </h3>
+                    
+                    <div class="grid grid-cols-2 gap-3 pt-2">
+                        <div id="badge-pioneer" class="p-3 border border-slate-100 rounded-xl bg-slate-50 text-center space-y-1 transition opacity-40">
+                            <div class="text-xl">🎒</div>
+                            <h4 class="font-bold text-[10px] text-slate-800">Arkeolog Pemula</h4>
+                            <p class="text-[9px] text-slate-400">Ikut serta 1 tes</p>
+                        </div>
+                        <div id="badge-history" class="p-3 border border-slate-100 rounded-xl bg-slate-50 text-center space-y-1 transition opacity-40">
+                            <div class="text-xl">🛡️</div>
+                            <h4 class="font-bold text-[10px] text-slate-800">Ksatria Budaya</h4>
+                            <p class="text-[9px] text-slate-400">Skor Sejarah >80%</p>
+                        </div>
+                        <div id="badge-museum" class="p-3 border border-slate-100 rounded-xl bg-slate-50 text-center space-y-1 transition opacity-40">
+                            <div class="text-xl">🏛️</div>
+                            <h4 class="font-bold text-[10px] text-slate-800">Pakar Museum</h4>
+                            <p class="text-[9px] text-slate-400">Skor Museum >80%</p>
+                        </div>
+                        <div id="badge-champion" class="p-3 border border-slate-100 rounded-xl bg-slate-50 text-center space-y-1 transition opacity-40">
+                            <div class="text-xl">🏆</div>
+                            <h4 class="font-bold text-[10px] text-slate-800">Duta Nasional</h4>
+                            <p class="text-[9px] text-slate-400">Skor Total >=90%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Question-by-Question Review Section -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 space-y-4">
+                <h3 class="text-sm font-serif font-bold text-slate-800 border-b pb-2 flex items-center gap-2">
+                    <span>🔍</span> Tinjauan Pembahasan Soal Secara Detail
+                </h3>
+                
+                <div class="space-y-4 divide-y divide-slate-100" id="analysis-review-container">
+                    <!-- Dynamic review cards -->
+                </div>
+            </div>
+
+            <!-- Bottom Navigation -->
+            <div class="flex items-center justify-center gap-4">
+                <button onclick="navigateToDashboard()" class="px-6 py-3 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition shadow-lg text-xs">
+                    🏠 Kembali ke Menu Utama
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 text-[11px] py-6 border-t border-slate-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="text-center md:text-left space-y-1">
+                <p class="font-semibold text-slate-200">CBT Cerdas Cermat Museum • system by <a href="https://toer.my.id" target="_blank" class="text-amber-400 hover:underline">(@kangtoer)</a></p>
+                <p>Edisi Guru Penggerak: Pembelajaran Mandiri Tanpa Kuota, Bebas Server & Cloud.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 text-slate-500">
+                <span>Versi 1.5.0 TKA</span>
+                <span>•</span>
+                <span>toer.my.id</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= MODERN CUSTOM MODAL POPUP & ALERT DIALOG ================= -->
+    <div id="custom-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-100 space-y-4 transform scale-95 transition-all">
+            <div class="flex items-center space-x-3 text-amber-500">
+                <span class="text-2xl" id="modal-icon">⚠️</span>
+                <h3 class="font-serif font-bold text-base text-slate-800" id="modal-title">Konfirmasi Tindakan</h3>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed" id="modal-message">
+                Apakah Anda yakin ingin memproses tindakan ini?
+            </p>
+            <div class="flex justify-end space-x-2 pt-2">
+                <button id="modal-btn-cancel" class="px-4 py-2 bg-slate-100 text-slate-700 font-semibold rounded-lg hover:bg-slate-200 transition text-xs">
+                    Batal
+                </button>
+                <button id="modal-btn-confirm" class="px-4 py-2 bg-slate-950 text-white font-semibold rounded-lg hover:bg-slate-800 transition text-xs">
+                    Konfirmasi
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= NOTIFICATION BANNER (INSTANT TOAST) ================= -->
+    <div id="toast-banner" class="hidden fixed bottom-5 right-5 z-50 bg-slate-900 text-white border-l-4 border-amber-500 px-4 py-3 rounded-lg shadow-xl flex items-center space-x-3 text-xs font-semibold animate-bounce">
+        <span id="toast-icon">💡</span>
+        <span id="toast-text">Notifikasi Baru</span>
+    </div>
+
+    <!-- ================= MODAL TAMBAH SOAL BARU ================= -->
+    <div id="add-question-modal" class="hidden fixed inset-0 z-40 flex items-center justify-center bg-slate-950/60 backdrop-blur-sm p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-100 space-y-4 my-8">
+            <div class="flex items-center justify-between border-b pb-2">
+                <h3 class="font-serif font-bold text-base text-slate-800 flex items-center gap-2">
+                    <span>➕</span> Tambah Soal Kustom Baru
+                </h3>
+                <button onclick="closeQuestionModal()" class="text-slate-400 hover:text-slate-600 font-bold text-lg">×</button>
+            </div>
+            
+            <div class="space-y-3 text-xs">
+                <div class="space-y-1">
+                    <label class="block font-bold text-slate-700">Kategori/Pilar Soal:</label>
+                    <select id="form-category" class="w-full p-2 border rounded bg-slate-50 focus:bg-white focus:outline-none">
+                        <option value="Permuseuman">Permuseuman & Cagar Budaya</option>
+                        <option value="Kebudayaan">Kebudayaan Nusantara</option>
+                        <option value="Sejarah">Sejarah Perjuangan</option>
+                    </select>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="block font-bold text-slate-700">Pertanyaan:</label>
+                    <textarea id="form-text" rows="3" placeholder="Masukkan narasi soal di sini..." class="w-full p-2 border rounded bg-slate-50 focus:bg-white focus:outline-none"></textarea>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="space-y-1">
+                        <label class="block font-bold text-slate-700">Pilihan A:</label>
+                        <input type="text" id="form-optA" placeholder="Jawaban A" class="w-full p-2 border rounded bg-slate-50 focus:bg-white focus:outline-none">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block font-bold text-slate-700">Pilihan B:</label>
+                        <input type="text" id="form-optB" placeholder="Jawaban B" class="w-full p-2 border rounded bg-slate-50 focus:bg-white focus:outline-none">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block font-bold text-slate-700">Pilihan C:</label>
+                        <input type="text" id="form-optC" placeholder="Jawaban C" class="w-full p-2 border rounded bg-slate-50 focus:bg-white focus:outline-none">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block font-bold text-slate-700">Pilihan D:</label>
+                        <input type="text" id="form-optD" placeholder="Jawaban D" class="w-full p-2 border rounded bg-slate-50 focus:bg-white focus:outline-none">
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="block font-bold text-slate-700">Kunci Jawaban Benar:</label>
+                    <select id="form-answer" class="w-full p-2 border rounded bg-slate-50 focus:bg-white focus:outline-none">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                    </select>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="block font-bold text-slate-700">Pembahasan Ilmiah:</label>
+                    <textarea id="form-discussion" rows="2" placeholder="Tulis rujukan buku/aturan pembuat soal..." class="w-full p-2 border rounded bg-slate-50 focus:bg-white focus:outline-none"></textarea>
+                </div>
+            </div>
+
+            <div class="flex justify-end space-x-2 pt-2 border-t">
+                <button onclick="closeQuestionModal()" class="px-4 py-2 bg-slate-100 text-slate-700 font-semibold rounded-lg hover:bg-slate-200 transition text-xs">
+                    Batal
+                </button>
+                <button onclick="saveNewQuestion()" class="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition text-xs">
+                    Simpan Soal
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT CORE CODE ================= -->
+    <script>
+        // Default Bank Soal LCC Museum (Berisi 100 soal variasi model TKA)
+        const defaultQuestions = [
+            // PILAR 1: PERMUSEUMAN & CAGAR BUDAYA (1 - 40)
+            {
+                id: 1,
+                category: "Permuseuman",
+                text: "Menurut Peraturan Pemerintah RI Nomor 66 Tahun 2015, kepemilikan setiap cagar budaya terdaftar yang dialihkan harus dicatat oleh pejabat berwenang. Berapa jangka waktu maksimal pelaporan setelah terjadinya pengalihan tersebut?",
+                options: [
+                    { key: "A", text: "30 Hari" },
+                    { key: "B", text: "14 Hari" },
+                    { key: "C", text: "7 Hari" },
+                    { key: "D", text: "3 Hari" }
+                ],
+                answer: "A",
+                discussion: "Berdasarkan peraturan perundangan tentang cagar budaya, setiap pengalihan hak kepemilikan wajib dilaporkan kepada instansi pendaftaran paling lambat 30 hari sejak terjadinya pengalihan."
+            },
+            {
+                id: 2,
+                category: "Permuseuman",
+                text: "Manakah dari elemen berikut ini yang merupakan klasifikasi utama bagi petugas teknis 'Edukator Museum' menurut standar kompetensi kerja nasional?",
+                options: [
+                    { key: "A", text: "Melakukan fumigasi preventif pada koleksi berbahan organik" },
+                    { key: "B", text: "Menyusun skenario bimbingan informasi koleksi dan pelayanan edukasi kelompok sasaran" },
+                    { key: "C", text: "Melakukan inventarisasi dan registrasi data sekunder koleksi" },
+                    { key: "D", text: "Membuat tata letak pencahayaan (lighting) di ruang pameran temporer" }
+                ],
+                answer: "B",
+                discussion: "Edukator bertugas merancang strategi komunikasi, membimbing pengunjung, serta merancang program publik-edukasi agar nilai informasi koleksi tersampaikan secara efektif."
+            },
+            {
+                id: 3,
+                category: "Permuseuman",
+                text: "Museum yang memiliki koleksi dari berbagai cabang seni, sejarah, dan ilmu pengetahuan alam secara terpadu tanpa batasan satu spesifikasi keilmuan saja menurut kategorinya digolongkan sebagai...",
+                options: [
+                    { key: "A", text: "Museum Khusus" },
+                    { key: "B", text: "Museum Regional" },
+                    { key: "C", text: "Museum Umum" },
+                    { key: "D", text: "Museum Memorial" }
+                ],
+                answer: "C",
+                discussion: "PP No. 66/2015 membagi museum menjadi dua jenis berdasarkan koleksinya: Museum Umum (koleksi terdiri dari kumpulan bukti material manusia dan/atau lingkungannya yang berkaitan dengan berbagai cabang seni, disiplin ilmu, dan teknologi) dan Museum Khusus."
+            },
+            {
+                id: 4,
+                category: "Permuseuman",
+                text: "Berdasarkan UU No. 11 Tahun 2010, sebuah benda dapat diusulkan menjadi Cagar Budaya jika memenuhi kriteria usia minimal...",
+                options: [
+                    { key: "A", text: "25 Tahun" },
+                    { key: "B", text: "50 Tahun" },
+                    { key: "C", text: "75 Tahun" },
+                    { key: "D", text: "100 Tahun" }
+                ],
+                answer: "B",
+                discussion: "Pasal 5 UU No. 11 Tahun 2010 menetapkan kriteria Cagar Budaya: berusia 50 tahun atau lebih, mewakili masa gaya paling singkat 50 tahun, memiliki arti khusus bagi sejarah, ilmu pengetahuan, pendidikan, agama, dan/atau kebudayaan."
+            },
+            {
+                id: 5,
+                category: "Permuseuman",
+                text: "Di bawah ini yang merupakan fungsi utama dari seorang 'Preparator' di sebuah lembaga museum adalah...",
+                options: [
+                    { key: "A", text: "Mendokumentasikan data administrasi pendaftaran museum" },
+                    { key: "B", text: "Melakukan restorasi kimiawi pada koleksi logam berkarat" },
+                    { key: "C", text: "Menyiapkan dan membuat replika koleksi serta menata visualisasi ruang pameran" },
+                    { key: "D", text: "Menulis artikel ilmiah rujukan koleksi arkeologi" }
+                ],
+                answer: "C",
+                discussion: "Preparator bertugas mempersiapkan visualisasi pameran, merancang display fisik koleksi, pembuatan replika (casting), dan penanganan teknis fisik saat penataan."
+            },
+            {
+                id: 6,
+                category: "Permuseuman",
+                text: "Sebelum dipamerkan di ruang publik, koleksi museum yang baru masuk harus melewati proses awal penomoran, pengukuran, serta pencatatan identitas fisik. Istilah proses ini disebut...",
+                options: [
+                    { key: "A", text: "Konservasi" },
+                    { key: "B", text: "Registrasi dan Inventarisasi" },
+                    { key: "C", text: "Kurasi" },
+                    { key: "D", text: "Restorasi" }
+                ],
+                answer: "B",
+                discussion: "Proses administrasi awal berupa pengenalan identitas, pencatatan spesifikasi, dan pemberian nomor unik koleksi adalah tanggung jawab dari fungsi Registrasi."
+            },
+            {
+                id: 7,
+                category: "Permuseuman",
+                text: "Museum Sonobudoyo di Yogyakarta dikenal memiliki koleksi kebudayaan Jawa yang sangat lengkap. Badan ilmiah bentukan Belanda yang merintis pendirian museum tersebut pada tahun 1935 adalah...",
+                options: [
+                    { key: "A", text: "Bataviaasch Genootschap van Kunsten en Wetenschappen" },
+                    { key: "B", text: "Java Instituut" },
+                    { key: "C", text: "Koninklijk Bataviaasch Genootschap" },
+                    { key: "D", text: "Lembaga Kebudayaan Indonesia" }
+                ],
+                answer: "B",
+                discussion: "Java Instituut adalah yayasan kebudayaan yang menginisiasi pendirian Museum Sonobudoyo untuk melestarikan kebudayaan Jawa, Madura, Bali, dan Lombok."
+            },
+            {
+                id: 8,
+                category: "Permuseuman",
+                text: "Manakah tindakan kuratif berikut yang tidak boleh dilakukan secara sembarangan oleh seorang konservator karena berisiko merusak orisinalitas bahan warisan budaya?",
+                options: [
+                    { key: "A", text: "Mengikis paksa kerak patina hijau pada perunggu purbakala" },
+                    { key: "B", text: "Mengatur suhu kelembapan udara konstan di ruang penyimpanan" },
+                    { key: "C", text: "Membersihkan debu kering dengan kuas halus" },
+                    { key: "D", text: "Melakukan fumigasi ruangan dari rayap" }
+                ],
+                answer: "A",
+                discussion: "Kerak patina hijau pada perunggu sebenarnya bertindak sebagai pelindung alami logam purba (korosi stabil). Mengikisnya secara paksa tanpa analisis kimia dapat merusak detail fisik cagar budaya."
+            },
+            {
+                id: 9,
+                category: "Permuseuman",
+                text: "Prinsip pemindahan koleksi museum antar negara untuk kepentingan pameran internasional harus dilindungi dengan persetujuan khusus yang dikenal sebagai kekebalan dari penyitaan (immunity from seizure). Hal ini diatur dalam etika...",
+                options: [
+                    { key: "A", text: "Piagam Jakarta" },
+                    { key: "B", text: "Kode Etik ICOM (International Council of Museums)" },
+                    { key: "C", text: "Konvensi Jenewa" },
+                    { key: "D", text: "Deklarasi Bandung" }
+                ],
+                answer: "B",
+                discussion: "Kode Etik ICOM menetapkan standar profesionalisme museum di seluruh dunia, termasuk perlindungan hukum koleksi pinjaman antarnegara."
+            },
+            {
+                id: 10,
+                category: "Permuseuman",
+                text: "Situs Cagar Budaya bawah air sering kali menghadapi ancaman penjarahan bangkai kapal bersejarah (cargo salvage). Menurut UU No. 11/2010, semua temuan di bawah air yang bernilai cagar budaya dikuasai oleh...",
+                options: [
+                    { key: "A", text: "Penemu pertama benda tersebut" },
+                    { key: "B", text: "Negara Kesatuan Republik Indonesia" },
+                    { key: "C", text: "Pemerintah Provinsi setempat saja" },
+                    { key: "D", text: "Lembaga arkeologi swasta" }
+                ],
+                answer: "B",
+                discussion: "Semua Cagar Budaya yang tidak diketahui pemiliknya atau berada di bawah air dalam wilayah yurisdiksi Indonesia dinyatakan dikuasai oleh Negara demi pelestarian ilmiah."
+            },
+            {
+                id: 11,
+                category: "Permuseuman",
+                text: "Siapakah tokoh Indonesia yang dikenal merintis perkembangan klasifikasi numismatik (mata uang kuno) dan menyumbangkan banyak koleksi pribadinya ke Museum Nasional?",
+                options: [
+                    { key: "A", text: "Raden Saleh" },
+                    { key: "B", text: "K.R.T. Hardjonagoro" },
+                    { key: "C", text: "E.H.B. Brans" },
+                    { key: "D", text: "Prof. Dr. Poerbatjaraka" }
+                ],
+                answer: "B",
+                discussion: "K.R.T. Hardjonagoro (Go Tik Swan) adalah pakar kebudayaan Jawa, pembatik legendaris, sekaligus kolektor keramik dan numismatik ulung yang berkontribusi besar bagi Museum Nasional."
+            },
+            {
+                id: 12,
+                category: "Permuseuman",
+                text: "Standardisasi suhu udara yang paling ideal di dalam vitrin (showcase) ruang pameran museum untuk melindungi koleksi kertas dan naskah kuno berkisar antara...",
+                options: [
+                    { key: "A", text: "18 - 22 Derajat Celcius" },
+                    { key: "B", text: "26 - 30 Derajat Celcius" },
+                    { key: "C", text: "10 - 15 Derajat Celcius" },
+                    { key: "D", text: "32 - 35 Derajat Celcius" }
+                ],
+                answer: "A",
+                discussion: "Kertas sangat sensitif terhadap perubahan suhu dan kelembapan. Kisaran suhu sejuk 18-22°C dengan kelembapan relatif 50-55% mencegah pertumbuhan jamur dan kerapuhan serat selulosa kertas."
+            },
+            {
+                id: 13,
+                category: "Permuseuman",
+                text: "Setiap museum wajib menyelenggarakan fungsi pelindungan yang meliputi tindakan preventif dan kuratif. Manakah yang termasuk tindakan preventif?",
+                options: [
+                    { key: "A", text: "Melakukan restorasi penyambungan guci keramik yang pecah" },
+                    { key: "B", text: "Melakukan pengaturan kelembapan udara konstan dan pencegahan paparan ultraviolet matahari langsung" },
+                    { key: "C", text: "Menempelkan kembali lembaran manuskrip yang robek" },
+                    { key: "D", text: "Melakukan ekskavasi penyelamatan situs arkeologi" }
+                ],
+                answer: "B",
+                discussion: "Tindakan preventif bertujuan mencegah kerusakan sebelum terjadi, seperti mengendalikan lingkungan penyimpanan (suhu, kelembapan, cahaya UV, kebersihan)."
+            },
+            {
+                id: 14,
+                category: "Permuseuman",
+                text: "Museum Benteng Vredeburg di Yogyakarta awalnya didirikan oleh Belanda pada abad ke-18. Apakah tujuan taktis militer tersembunyi Belanda menempatkan benteng tersebut sangat dekat dengan Keraton Yogyakarta?",
+                options: [
+                    { key: "A", text: "Membantu pertahanan Keraton dari serangan luar" },
+                    { key: "B", text: "Mempermudah kerja sama administrasi perdagangan" },
+                    { key: "C", text: "Mengawasi segala aktivitas politik dan pergerakan di dalam Keraton Yogyakarta" },
+                    { key: "D", text: "Dijadikan gudang penyimpanan rempah-rempah eksklusif VOC" }
+                ],
+                answer: "C",
+                discussion: "Letak Benteng Vredeburg yang berjarak hanya satu jangkauan meriam dari istana difungsikan oleh Gubernur Jenderal Belanda (melalui prakarsa Nicholas Hartingh) untuk mengontrol dan mengintimidasi kekuasaan Sultan."
+            },
+            {
+                id: 15,
+                category: "Permuseuman",
+                text: "Sebuah kawasan yang memiliki dua atau lebih situs cagar budaya yang letaknya saling berdekatan dan menunjukkan sisa ekosistem khas masa lalu diatur dalam UU Cagar Budaya sebagai...",
+                options: [
+                    { key: "A", text: "Situs Cagar Budaya" },
+                    { key: "B", text: "Kawasan Cagar Budaya" },
+                    { key: "C", text: "Struktur Cagar Budaya" },
+                    { key: "D", text: "Zonasi Cagar Budaya" }
+                ],
+                answer: "B",
+                discussion: "Kawasan Cagar Budaya adalah satuan ruang geografis yang memiliki dua Situs Cagar Budaya atau lebih yang letaknya berdekatan dan/atau memperlihatkan ciri tata ruang yang khas."
+            },
+            {
+                id: 16,
+                category: "Permuseuman",
+                text: "Museum Geologi Bandung menyimpan salah satu fosil vertebrata purba raksasa yang ditemukan di daerah Blora. Fosil hewan apakah yang dimaksud?",
+                options: [
+                    { key: "A", text: "Gajah Purba (Elephas hysudrindicus)" },
+                    { key: "B", text: "Badak Purba (Rhinoceros sondaicus)" },
+                    { key: "C", text: "Harimau Purba (Panthera tigris trinilensis)" },
+                    { key: "D", text: "Kuda Nil Purba" }
+                ],
+                answer: "A",
+                discussion: "Fosil replika gajah purba raksasa asal Blora (Elephas hysudrindicus) dipajang megah di ruang utama lantai 1 Museum Geologi Bandung."
+            },
+            {
+                id: 17,
+                category: "Permuseuman",
+                text: "Pada tahun 1778, didirikan lembaga ilmiah tertua di Asia Tenggara yang menjadi cikal bakal lahirnya Museum Nasional di Jakarta. Lembaga ini bernama...",
+                options: [
+                    { key: "A", text: "Java Instituut" },
+                    { key: "B", text: "Bataviaasch Genootschap van Kunsten en Wetenschappen" },
+                    { key: "C", text: "Koninklijk Instituut voor Taal-, Land- en Volkenkunde" },
+                    { key: "D", text: "Indisch Genootschap" }
+                ],
+                answer: "B",
+                discussion: "Bataviaasch Genootschap van Kunsten en Wetenschappen didirikan pada 24 April 1778 dengan semboyan 'Ten Nutte van het Algemeen' (Untuk Kepentingan Umum)."
+            },
+            {
+                id: 18,
+                category: "Permuseuman",
+                text: "Sistem klasifikasi koleksi museum yang mengkhususkan diri pada penyimpanan benda-benda bukti peristiwa geologis, batuan meteorit, dan fosil hewan purba digolongkan ke dalam bidang...",
+                options: [
+                    { key: "A", text: "Koleksi Arkeologi" },
+                    { key: "B", text: "Koleksi Geologika" },
+                    { key: "C", text: "Koleksi Biologika" },
+                    { key: "D", text: "Koleksi Paleontologi" }
+                ],
+                answer: "B",
+                discussion: "Koleksi Geologika mengkhususkan diri pada objek disiplin ilmu geologi (batuan, mineral, kristal), sedangkan fosil murni masuk ke dalam Paleontologika."
+            },
+            {
+                id: 19,
+                category: "Permuseuman",
+                text: "Apakah nama piagam konvensi internasional yang diadopsi UNESCO pada tahun 1972 dan menjadi dasar penetapan perlindungan Warisan Budaya dan Alam Dunia?",
+                options: [
+                    { key: "A", text: "Piagam Venice" },
+                    { key: "B", text: "Konvensi Paris 1972 (World Heritage Convention)" },
+                    { key: "C", text: "Piagam Athena" },
+                    { key: "D", text: "Deklarasi Paris" }
+                ],
+                answer: "B",
+                discussion: "World Heritage Convention diadopsi UNESCO di Paris tahun 1972 untuk mengidentifikasi dan melindungi warisan budaya serta alam yang luar biasa secara universal (Outstanding Universal Value)."
+            },
+            {
+                id: 20,
+                category: "Permuseuman",
+                text: "Museum Sangiran di Jawa Tengah menyimpan cagar budaya berupa fosil rahang bawah 'Meganthropus paleojavanicus'. Siapakah peneliti yang pertama kali menemukan fosil raksasa tersebut di Sangiran?",
+                options: [
+                    { key: "A", text: "Eugene Dubois" },
+                    { key: "B", text: "G.H.R. von Koenigswald" },
+                    { key: "C", text: "B.D. van Rietschoten" },
+                    { key: "D", text: "Teuku Jacob" }
+                ],
+                answer: "B",
+                discussion: "Von Koenigswald menemukan fosil rahang bawah Meganthropus paleojavanicus di Sangiran pada kurun waktu 1936-1941."
+            },
+            // TAMBAHAN SOAL PERMUSEUMAN (21 - 40)
+            {
+                id: 21,
+                category: "Permuseuman",
+                text: "Manakah undang-undang RI terbaru yang mengatur tentang kemudahan akses, pelindungan, dan pengembangan ekosistem kebudayaan secara terintegrasi?",
+                options: [
+                    { key: "A", text: "UU No. 5 Tahun 2017 tentang Pemajuan Kebudayaan" },
+                    { key: "B", text: "UU No. 11 Tahun 2010 tentang Cagar Budaya" },
+                    { key: "C", text: "UU No. 24 Tahun 2009 tentang Bendera, Bahasa, Lambang Negara" },
+                    { key: "D", text: "UU No. 4 Tahun 2014 tentang Kepurbakalaan" }
+                ],
+                answer: "A",
+                discussion: "UU No. 5 Tahun 2017 adalah regulasi payung (umbrella law) yang bertujuan memajukan kebudayaan nasional melalui pelindungan, pengembangan, pemanfaatan, dan pembinaan."
+            },
+            {
+                id: 22,
+                category: "Permuseuman",
+                text: "Dalam pameran museum, teknik penyajian koleksi yang menempatkan objek dalam konteks lingkungan aslinya (misalnya suasana rumah adat atau gua prasejarah buatan) dinamakan...",
+                options: [
+                    { key: "A", text: "Pameran Tematis" },
+                    { key: "B", text: "Diorama / Display Ekologis" },
+                    { key: "C", text: "Display Taksonomis" },
+                    { key: "D", text: "Pameran Interaktif" }
+                ],
+                answer: "B",
+                discussion: "Diorama/ekologis menyajikan koleksi lengkap dengan rekayasa lingkungan sekitarnya agar mempermudah pemahaman konteks sosial atau historis benda."
+            },
+            {
+                id: 23,
+                category: "Permuseuman",
+                text: "Manakah yang merupakan wewenang dari Tim Ahli Cagar Budaya (TACB) sesuai ketentuan undang-undang?",
+                options: [
+                    { key: "A", text: "Menjual benda cagar budaya ke kolektor asing" },
+                    { key: "B", text: "Memberikan rekomendasi penetapan status peringkat Cagar Budaya kepada Pemerintah" },
+                    { key: "C", text: "Melakukan restorasi fisik secara mandiri tanpa izin" },
+                    { key: "D", text: "Menyita cagar budaya milik perorangan secara sepihak" }
+                ],
+                answer: "B",
+                discussion: "TACB adalah kelompok ahli independen yang bertugas menilai kelayakan cagar budaya untuk kemudian direkomendasikan status penetapannya kepada Menteri, Gubernur, atau Bupati/Wali Kota."
+            },
+            {
+                id: 24,
+                category: "Permuseuman",
+                text: "Museum Kereta Api Ambarawa menyimpan banyak lokomotif uap kuno bergerigi. Mengapa lokomotif jenis bergerigi ini sangat penting secara teknologi perkeretaapian masa lalu?",
+                options: [
+                    { key: "A", text: "Agar dapat melaju lebih cepat di tanah datar" },
+                    { key: "B", text: "Untuk mendaki jalur pegunungan yang sangat terjal" },
+                    { key: "C", text: "Mengurangi kebisingan suara gesekan roda baja" },
+                    { key: "D", text: "Menghemat penggunaan bahan bakar batu bara" }
+                ],
+                answer: "B",
+                discussion: "Rel dan roda bergerigi digunakan pada rute dengan kecuraman tinggi (seperti rute Ambarawa-Secang) agar kereta tidak slip atau meluncur bebas ke bawah."
+            },
+            {
+                id: 25,
+                category: "Permuseuman",
+                text: "Istilah bagi koleksi museum yang berupa peralatan tukar, mata uang kertas/logam, koin kuno, tanda jasa, dan token perdagangan sejarah disebut...",
+                options: [
+                    { key: "A", text: "Koleksi Filologika" },
+                    { key: "B", text: "Koleksi Numismatika" },
+                    { key: "C", text: "Koleksi Heraldika" },
+                    { key: "D", text: "Koleksi Keramikologika" }
+                ],
+                answer: "B",
+                discussion: "Numismatika mempelajari mata uang, token, kertas berharga sejarah. Jika dikombinasikan dengan lambang tanda jasa, kadang disebut Numismatika-Heraldika."
+            },
+            {
+                id: 26,
+                category: "Permuseuman",
+                text: "Situs Megalitikum Gunung Padang di Cianjur diyakini sebagai struktur punden berundak purba. Jenis pengawasan tata ruang cagar budaya untuk mencegah kerusakan lingkungan sekitar cagar budaya disebut...",
+                options: [
+                    { key: "A", text: "Ekskavasi Arkeologi" },
+                    { key: "B", text: "Sistem Zonasi (Inti, Penyangga, Pengembangan)" },
+                    { key: "C", text: "Vandalisme" },
+                    { key: "D", text: "Fumigasi Wilayah" }
+                ],
+                answer: "B",
+                discussion: "Sistem zonasi membagi wilayah cagar budaya menjadi Zona Inti (core zone), Penyangga (buffer), Pengembangan, dan Penunjang demi perlindungan hukum spatial."
+            },
+            {
+                id: 27,
+                category: "Permuseuman",
+                text: "Manakah cagar budaya di Indonesia yang pertama kali diakui secara resmi oleh UNESCO sebagai Warisan Dunia (World Heritage Site) pada tahun 1991?",
+                options: [
+                    { key: "A", text: "Situs Prasejarah Sangiran" },
+                    { key: "B", text: "Kompleks Candi Borobudur dan Candi Prambanan" },
+                    { key: "C", text: "Kawasan Subak Bali" },
+                    { key: "D", text: "Tambang Batubara Ombilin Sawahlunto" }
+                ],
+                answer: "B",
+                discussion: "Kompleks Candi Borobudur dan Prambanan terdaftar bersamaan sebagai Situs Warisan Dunia UNESCO kategori Kebudayaan pada tahun 1991."
+            },
+            {
+                id: 28,
+                category: "Permuseuman",
+                text: "Seorang kolektor ingin mendonasikan keramik dinasti Song miliknya ke museum. Petugas museum yang bertugas mencatat asal-usul sejarah kepemilikan benda tersebut (provenans) adalah...",
+                options: [
+                    { key: "A", text: "Konservator" },
+                    { key: "B", text: "Registrator" },
+                    { key: "C", text: "Preparator" },
+                    { key: "D", text: "Edukator" }
+                ],
+                answer: "B",
+                discussion: "Registrator bertanggung jawab atas keabsahan asal-usul (provenans), administrasi akuisisi, pendaftaran hukum, serta database cagar budaya masuk."
+            },
+            {
+                id: 29,
+                category: "Permuseuman",
+                text: "Museum Bahari di Jakarta menempati gedung kuno yang dulunya berfungsi sebagai gudang penyimpanan rempah-rempah milik kongsi dagang VOC. Gudang ini dibangun di dekat muara sungai...",
+                options: [
+                    { key: "A", text: "Sungai Ciliwung" },
+                    { key: "B", text: "Sungai Cisadane" },
+                    { key: "C", text: "Sungai Brantas" },
+                    { key: "D", text: "Sungai Bengawan Solo" }
+                ],
+                answer: "A",
+                discussion: "Gedung Museum Bahari dibangun bertahap dari tahun 1652 di tepi Sungai Ciliwung barat untuk menyimpan kopi, teh, cengkih, dan pala berharga tinggi."
+            },
+            {
+                id: 30,
+                category: "Permuseuman",
+                text: "Penyusunan naskah kajian ilmiah mengenai sejarah, nilai penting, serta klasifikasi periodisasi suatu koleksi museum sebelum dipamerkan dinamakan sebagai kegiatan...",
+                options: [
+                    { key: "A", text: "Registrasi" },
+                    { key: "B", text: "Kurasi" },
+                    { key: "C", text: "Konservasi" },
+                    { key: "D", text: "Publikasi Umum" }
+                ],
+                answer: "B",
+                discussion: "Kurasi adalah kegiatan ilmiah berupa penelitian mendalam, analisis nilai penting, penulisan narasi label koleksi oleh Kurator."
+            },
+            {
+                id: 31,
+                category: "Permuseuman",
+                text: "Museum Blanco Renaissance Museum di Ubud Bali mengkhususkan diri untuk memamerkan karya seni dari pelukis ternama Antonio Blanco. Kategori kepemilikan museum ini adalah...",
+                options: [
+                    { key: "A", text: "Museum Pemerintah Pusat" },
+                    { key: "B", text: "Museum Pemerintah Daerah" },
+                    { key: "C", text: "Museum Swasta / Perorangan" },
+                    { key: "D", text: "Museum Internasional" }
+                ],
+                answer: "C",
+                discussion: "Museum Blanco didirikan dan dikelola secara swasta/keluarga yayasan seniman untuk memamerkan karya lukis maestro Antonio Blanco."
+            },
+            {
+                id: 32,
+                category: "Permuseuman",
+                text: "Manakah badan dunia di bawah naungan PBB yang secara khusus menangani kerja sama ilmu pengetahuan, pendidikan, dan kebudayaan?",
+                options: [
+                    { key: "A", text: "UNICEF" },
+                    { key: "B", text: "UNESCO" },
+                    { key: "C", text: "UNHCR" },
+                    { key: "D", text: "WHO" }
+                ],
+                answer: "B",
+                discussion: "UNESCO (United Nations Educational, Scientific and Cultural Organization) bertugas mempromosikan perdamaian dunia melalui pelestarian budaya dan sains."
+            },
+            {
+                id: 33,
+                category: "Permuseuman",
+                text: "Tindakan pembersihan koleksi cagar budaya logam dengan larutan asam sitrat encer untuk menghilangkan korosi tanpa merusak logam induk disebut...",
+                options: [
+                    { key: "A", text: "Fumigasi" },
+                    { key: "B", text: "Pembersihan Kimiawi (Chemical Cleaning)" },
+                    { key: "C", text: "Konservasi Mekanis" },
+                    { key: "D", text: "Ekskavasi" }
+                ],
+                answer: "B",
+                discussion: "Pembersihan kimiawi menggunakan senyawa asam/basa lemah terkontrol untuk mengurai noda karat atau garam korosif pada permukaan cagar budaya."
+            },
+            {
+                id: 34,
+                category: "Permuseuman",
+                text: "Museum Sonobudoyo di Yogyakarta memiliki koleksi manuskrip kuno berbahan daun lontar. Disiplin ilmu yang mempelajari naskah-naskah tulisan tangan kuno tersebut disebut...",
+                options: [
+                    { key: "A", text: "Arkeologi" },
+                    { key: "B", text: "Filologi" },
+                    { key: "C", text: "Epigrafi" },
+                    { key: "D", text: "Paleontologi" }
+                ],
+                answer: "B",
+                discussion: "Filologi adalah ilmu yang mempelajari bahasa, sejarah penulisan, dan kebudayaan berdasarkan naskah-naskah kuno tertulis."
+            },
+            {
+                id: 35,
+                category: "Permuseuman",
+                text: "Undang-Undang Cagar Budaya melarang pemindahan cagar budaya ke luar wilayah Indonesia, kecuali untuk kepentingan pameran dengan izin dari...",
+                options: [
+                    { key: "A", text: "Kepala Desa setempat" },
+                    { key: "B", text: "Menteri yang bertanggung jawab di bidang kebudayaan" },
+                    { key: "C", text: "Kapolri secara langsung" },
+                    { key: "D", text: "Dinas Pariwisata Daerah" }
+                ],
+                answer: "B",
+                discussion: "Pengiriman cagar budaya ke luar negeri harus melewati evaluasi ketat dan mendapatkan izin resmi tertulis dari Menteri demi mencegah kehilangan aset bangsa."
+            },
+            {
+                id: 36,
+                category: "Permuseuman",
+                text: "Museum Basoeki Abdullah di Jakarta didirikan atas wasiat pelukis Basoeki Abdullah. Aliran seni lukis utama yang melekat kuat pada karya-karya beliau adalah...",
+                options: [
+                    { key: "A", text: "Kubisme" },
+                    { key: "B", text: "Realisme dan Naturalisme" },
+                    { key: "C", text: "Ekspresionisme" },
+                    { key: "D", text: "Abstrak Kontemporer" }
+                ],
+                answer: "B",
+                discussion: "Basoeki Abdullah terkenal dengan lukisan lanskap alam Indonesia serta potret tokoh kenegaraan yang digarap dengan estetika naturalisme dan realisme yang anggun."
+            },
+            {
+                id: 37,
+                category: "Permuseuman",
+                text: "Museum Pusaka di Taman Mini Indonesia Indah (TMII) mengkhususkan diri pada koleksi senjata tradisional Nusantara. Apa nama jenis kurasi klasifikasi bilah senjata tradisional seperti keris?",
+                options: [
+                    { key: "A", text: "Filologi" },
+                    { key: "B", text: "Tosan Aji / Krisologi" },
+                    { key: "C", text: "Numismatik" },
+                    { key: "D", text: "Etnografi" }
+                ],
+                answer: "B",
+                discussion: "Tosan Aji mengacu pada klasifikasi senjata berbahan besi bernilai luhur, dan krisologi adalah studi khusus mengenai keris."
+            },
+            {
+                id: 38,
+                category: "Permuseuman",
+                text: "Candi Muara Takus merupakan situs candi Buddha tertua di Pulau Sumatera yang berbahan dasar batu bata merah. Di provinsi manakah candi unik ini berada?",
+                options: [
+                    { key: "A", text: "Sumatera Utara" },
+                    { key: "B", text: "Riau" },
+                    { key: "C", text: "Jambi" },
+                    { key: "D", text: "Sumatera Barat" }
+                ],
+                answer: "B",
+                discussion: "Candi Muara Takus terletak di Kecamatan XIII Koto Kampar, Kabupaten Kampar, Provinsi Riau."
+            },
+            {
+                id: 39,
+                category: "Permuseuman",
+                text: "Sebelum melakukan restorasi atau pembangunan fisik di kawasan cagar budaya, penelitian awal yang dilakukan untuk mendeteksi sisa struktur bangunan di bawah permukaan tanah disebut...",
+                options: [
+                    { key: "A", text: "Ekskavasi Arkeologi" },
+                    { key: "B", text: "Rehabilitasi" },
+                    { key: "C", text: "Eksplorasi Tambang" },
+                    { key: "D", text: "Rekonstruksi Total" }
+                ],
+                answer: "A",
+                discussion: "Ekskavasi adalah metode penggalian tanah arkeologis yang dilakukan secara hati-hati untuk mengungkap peninggalan purba tanpa merusak strukturnya."
+            },
+            {
+                id: 40,
+                category: "Permuseuman",
+                text: "Museum Nasional Indonesia sering kali disebut oleh masyarakat umum sebagai 'Museum Gajah'. Penamaan populer ini berakar dari...",
+                options: [
+                    { key: "A", text: "Adanya koleksi fosil gajah purba utuh di dalam museum" },
+                    { key: "B", text: "Patung gajah perunggu di pekarangan depan museum yang merupakan hadiah Raja Thailand" },
+                    { key: "C", text: "Bentuk arsitektur tiang gedung yang menyerupai kaki gajah" },
+                    { key: "D", text: "Pendiri museum yang menyukai dekorasi hewan gajah" }
+                ],
+                answer: "B",
+                discussion: "Patung gajah perunggu di halaman depan merupakan pemberian Raja Chulalongkorn dari Thailand (Siam) saat berkunjung pada tahun 1871."
+            },
+
+            // PILAR 2: KEBUDAYAAN NUSANTARA (41 - 70)
+            {
+                id: 41,
+                category: "Kebudayaan",
+                text: "Apakah nama pakaian adat pengantin khas daerah Palembang, Sumatera Selatan, yang mencerminkan kejayaan Kerajaan Sriwijaya dengan hiasan benang emas (songket) yang megah?",
+                options: [
+                    { key: "A", text: "Bundo Kanduang" },
+                    { key: "B", text: "Aesan Gede" },
+                    { key: "C", text: "Kebaya Labuh" },
+                    { key: "D", text: "Ulos" }
+                ],
+                answer: "B",
+                discussion: "Aesan Gede adalah pakaian adat pernikahan Palembang yang melambangkan kebesaran kemegahan dinasti maritim Sriwijaya."
+            },
+            {
+                id: 42,
+                category: "Kebudayaan",
+                text: "Suku Toraja di Sulawesi Selatan mengenal tradisi penyimpanan jenazah di dalam dinding-dinding gua batu tinggi. Tradisi pemakaman adat yang megah ini disebut...",
+                options: [
+                    { key: "A", text: "Rambu Solo'" },
+                    { key: "B", text: "Ngaben" },
+                    { key: "C", text: "Tiwah" },
+                    { key: "D", text: "Keleang" }
+                ],
+                answer: "A",
+                discussion: "Rambu Solo' adalah upacara pemakaman adat masyarakat Toraja sebagai bentuk penghormatan terakhir mengantarkan arwah ke alam baka (puya)."
+            },
+            {
+                id: 43,
+                category: "Kebudayaan",
+                text: "Alat musik petik khas suku Dayak di Kalimantan yang diukir indah menyerupai burung enggang dan terbuat dari kayu pilihan disebut...",
+                options: [
+                    { key: "A", text: "Sasando" },
+                    { key: "B", text: "Sape / Sampe" },
+                    { key: "C", text: "Kolintang" },
+                    { key: "D", text: "Angklung" }
+                ],
+                answer: "B",
+                discussion: "Sape/Sampe adalah alat musik petik dawai tradisional suku Dayak yang dimainkan untuk mengiringi tarian adat atau ritual religi."
+            },
+            {
+                id: 44,
+                category: "Kebudayaan",
+                text: "Tradisi adat lompat batu setinggi 2 meter yang dilakukan oleh para pemuda sebagai pembuktian kedewasaan dan keberanian fisik berasal dari Pulau...",
+                options: [
+                    { key: "A", text: "Pulau Mentawai" },
+                    { key: "B", text: "Pulau Nias" },
+                    { key: "C", text: "Pulau Sumba" },
+                    { key: "D", text: "Pulau Madura" }
+                ],
+                answer: "B",
+                discussion: "Tradisi Fahombo atau lompat batu merupakan budaya khas masyarakat Nias, Sumatera Utara, yang secara historis melatih ketangkasan prajurit perang."
+            },
+            {
+                id: 45,
+                category: "Kebudayaan",
+                text: "Sistem pewarisan kekerabatan adat Minangkabau di Sumatera Barat menarik garis keturunan dari pihak ibu. Sistem kekerabatan ini disebut...",
+                options: [
+                    { key: "A", text: "Patrilineal" },
+                    { key: "B", text: "Matrilineal" },
+                    { key: "C", text: "Bilateral" },
+                    { key: "D", text: "Ambilineal" }
+                ],
+                answer: "B",
+                discussion: "Minangkabau menganut kekerabatan Matrilineal, di mana harta pusaka dan garis keturunan suku diturunkan dari ibu ke anak perempuan."
+            },
+            {
+                id: 46,
+                category: "Kebudayaan",
+                text: "Wayang Kulit Purwa merupakan mahakarya seni pertunjukan luhur dari Jawa. Tokoh perantara spiritual jenaka yang mendampingi kesatria protagonis dikenal sebagai golongan...",
+                options: [
+                    { key: "A", text: "Pandawa" },
+                    { key: "B", text: "Kurawa" },
+                    { key: "C", text: "Punakawan" },
+                    { key: "D", text: "Dewa" }
+                ],
+                answer: "C",
+                discussion: "Punakawan (Semar, Gareng, Petruk, Bagong) melambangkan kearifan lokal rakyat kecil yang bertindak sebagai penasihat spiritual para kesatria."
+            },
+            {
+                id: 47,
+                category: "Kebudayaan",
+                text: "Candi Prambanan di perbatasan Yogyakarta-Klaten dihiasi relief cerita kepahlawanan epik Hindu yang sangat terkenal. Cerita relief tersebut adalah...",
+                options: [
+                    { key: "A", text: "Mahabharata" },
+                    { key: "B", text: "Ramayana" },
+                    { key: "C", text: "Sutasoma" },
+                    { key: "D", text: "Arjunawiwaha" }
+                ],
+                answer: "B",
+                discussion: "Relief di pagar langkan Candi Prambanan menggambarkan kisah epik Ramayana dari penjelmaan Rama hingga penculikan Sinta oleh Rahwana."
+            },
+            {
+                id: 48,
+                category: "Kebudayaan",
+                text: "Masyarakat pegunungan Tengger di Jawa Timur menyelenggarakan upacara membuang sesaji ke kawah Gunung Bromo sebagai simbol syukur. Upacara ritus ini dinamakan...",
+                options: [
+                    { key: "A", text: "Kasada / Yadnya Kasada" },
+                    { key: "B", text: "Seren Taun" },
+                    { key: "C", text: "Melasti" },
+                    { key: "D", text: "Mappanretasi" }
+                ],
+                answer: "A",
+                discussion: "Yadnya Kasada diadakan setiap hari ke-14 bulan Kasada untuk menghormati leluhur Roro Anteng dan Joko Seger."
+            },
+            {
+                id: 49,
+                category: "Kebudayaan",
+                text: "Apakah nama tarian tradisional berpasangan asal Sumatera Barat yang menggunakan properti berupa piring kayu yang digenggam dengan gerakan dinamis cepat?",
+                options: [
+                    { key: "A", text: "Tari Randai" },
+                    { key: "B", text: "Tari Piring" },
+                    { key: "C", text: "Tari Payung" },
+                    { key: "D", text: "Tari Pasambahan" }
+                ],
+                answer: "B",
+                discussion: "Tari Piring menggambarkan rasa syukur masyarakat agraris atas hasil panen padi yang melimpah ruah."
+            },
+            {
+                id: 50,
+                category: "Kebudayaan",
+                text: "Rumah adat Honai merupakan tempat tinggal tradisional berbentuk bulat tanpa jendela dengan atap jerami lebat. Suku manakah yang memiliki rumah adat ikonik ini?",
+                options: [
+                    { key: "A", text: "Suku Dani di Papua" },
+                    { key: "B", text: "Suku Dayak di Kalimantan" },
+                    { key: "C", text: "Suku Sasak di Lombok" },
+                    { key: "D", text: "Suku Toraja di Sulawesi" }
+                ],
+                answer: "A",
+                discussion: "Rumah Honai dirancang suku Dani tanpa jendela untuk memerangkap hawa panas alami guna berlindung dari suhu dingin pegunungan Papua."
+            },
+            {
+                id: 51,
+                category: "Kebudayaan",
+                text: "Teknik pewarnaan kain ikat tradisional khas Nusa Tenggara Timur yang menggunakan pewarna alami akar pohon mengkudu untuk menghasilkan warna merah kecokelatan disebut...",
+                options: [
+                    { key: "A", text: "Batik Tulis" },
+                    { key: "B", text: "Tenun Ikat Sumba" },
+                    { key: "C", text: "Songket Minang" },
+                    { key: "D", text: "Sutra Bugis" }
+                ],
+                answer: "B",
+                discussion: "Tenun ikat Sumba menggunakan pewarna organik (seperti mengkudu dan tarum) dalam proses pewarnaan tradisional yang memakan waktu berbulan-bulan."
+            },
+            {
+                id: 52,
+                category: "Kebudayaan",
+                text: "Suku laut legendaris di perairan Nusantara yang hidup nomaden di atas perahu dan tersebar di perairan Sulawesi dan Maluku adalah...",
+                options: [
+                    { key: "A", text: "Suku Baduy" },
+                    { key: "B", text: "Suku Bajo / Bajau" },
+                    { key: "C", text: "Suku Asmat" },
+                    { key: "D", text: "Suku Tengger" }
+                ],
+                answer: "B",
+                discussion: "Suku Bajo terkenal dengan kemampuan maritimnya yang luar biasa, hidup berpindah-pindah di atas perahu sebelum menetap di perumahan terapung."
+            },
+            {
+                id: 53,
+                category: "Kebudayaan",
+                text: "Ritual adat suku Dayak untuk membersihkan tulang belulang leluhur kemudian dipindahkan ke dalam bangunan kecil berukir di atas tiang (sandung) disebut...",
+                options: [
+                    { key: "A", text: "Rambu Solo" },
+                    { key: "B", text: "Tiwah" },
+                    { key: "C", text: "Ngaben" },
+                    { key: "D", text: "Keleang" }
+                ],
+                answer: "B",
+                discussion: "Upacara Tiwah merupakan upacara kematian tingkat akhir pemeluk Kaharingan suku Dayak Ngaju untuk mengantarkan jiwa ke Lewu Tatau."
+            },
+            {
+                id: 54,
+                category: "Kebudayaan",
+                text: "Sastra lisan tradisional berupa pantun berbalas bersahut-sahutan yang menjadi bagian penting upacara pernikahan adat Betawi adalah...",
+                options: [
+                    { key: "A", text: "Lenong" },
+                    { key: "B", text: "Palang Pintu" },
+                    { key: "C", text: "Tanjidor" },
+                    { key: "D", text: "Keroncong Tugu" }
+                ],
+                answer: "B",
+                discussion: "Palang Pintu menggabungkan seni bela diri silat dengan adu pantun jenaka sebelum pengantin pria diperbolehkan masuk ke rumah pengantin wanita."
+            },
+            {
+                id: 55,
+                category: "Kebudayaan",
+                text: "Suku Baduy di Banten membagi masyarakatnya menjadi Baduy Dalam dan Baduy Luar. Suku Baduy Dalam identik mengenakan pakaian tenun berwarna...",
+                options: [
+                    { key: "A", text: "Hitam atau Biru Tua" },
+                    { key: "B", text: "Putih Alami tanpa jahitan mesin" },
+                    { key: "C", text: "Merah Menyala" },
+                    { key: "D", text: "Kuning Keemasan" }
+                ],
+                answer: "B",
+                discussion: "Pakaian putih melambangkan kesucian nilai tradisi asli Baduy Dalam (Kanekes) yang belum terpengaruh dunia luar."
+            },
+            {
+                id: 56,
+                category: "Kebudayaan",
+                text: "Arsitektur gerbang tradisional Bali yang berbentuk menyerupai candi yang terbelah dua sama besar tanpa atap penghubung di bagian atas dinamakan...",
+                options: [
+                    { key: "A", text: "Bale Kulkul" },
+                    { key: "B", text: "Gapura Candi Bentar" },
+                    { key: "C", text: "Paduraksa" },
+                    { key: "D", text: "Wantilan" }
+                ],
+                answer: "B",
+                discussion: "Candi Bentar merupakan gapura masuk pura atau istana raja yang terbelah simetris melambangkan keseimbangan alam kosmos Hindu."
+            },
+            {
+                id: 57,
+                category: "Kebudayaan",
+                text: "Apakah nama senjata tradisional khas masyarakat adat Jawa Barat yang memiliki bilah melengkung menyerupai selembar bulu atau harimau, sering diasosiasikan dengan Prabu Siliwangi?",
+                options: [
+                    { key: "A", text: "Kujang" },
+                    { key: "B", text: "Rencong" },
+                    { key: "C", text: "Clurit" },
+                    { key: "D", text: "Badik" }
+                ],
+                answer: "A",
+                discussion: "Kujang melambangkan kekuatan spiritual dan kedaulatan tanah Sunda kuno, memiliki ornamen lubang (mata) yang khas pada bilahnya."
+            },
+            {
+                id: 58,
+                category: "Kebudayaan",
+                text: "Suku bangsa di daerah Sumatra Utara yang menganut marga patrilineal dan terkenal dengan arsitektur rumah adat bagolo berbentuk tanduk kerbau menjulang tinggi adalah...",
+                options: [
+                    { key: "A", text: "Suku Minangkabau" },
+                    { key: "B", text: "Suku Batak Toba / Karo" },
+                    { key: "C", text: "Suku Nias" },
+                    { key: "D", text: "Suku Melayu" }
+                ],
+                answer: "B",
+                discussion: "Rumah adat Batak (Jabu / Bagas Godang) memiliki tiang penyangga kokoh dengan atap melengkung runcing yang melambangkan status kepemimpinan marga."
+            },
+            {
+                id: 59,
+                category: "Kebudayaan",
+                text: "Upacara adat pembakaran jenazah umat Hindu di Pulau Bali sebagai sarana penyucian roh leluhur kembali ke alam asalnya disebut...",
+                options: [
+                    { key: "A", text: "Ngaben" },
+                    { key: "B", text: "Melasti" },
+                    { key: "C", text: "Nyepi" },
+                    { key: "D", text: "Galungan" }
+                ],
+                answer: "A",
+                discussion: "Ngaben melambangkan pengembalian unsur panca maha bhuta tubuh fisik manusia ke alam semesta lewat media api suci."
+            },
+            {
+                id: 60,
+                category: "Kebudayaan",
+                text: "Alat musik melodi pukul dari daerah Sulawesi Utara yang berbahan kayu ringan disusun sejajar dan diletakkan di atas bak resonansi kayu bernama...",
+                options: [
+                    { key: "A", text: "Gamelan" },
+                    { key: "B", text: "Kolintang" },
+                    { key: "C", text: "Calung" },
+                    { key: "D", text: "Sasando" }
+                ],
+                answer: "B",
+                discussion: "Kolintang terbuat dari kayu lokal ringan beresonansi tinggi (seperti kayu cempaka) yang menghasilkan suara gemerincing merdu."
+            },
+            {
+                id: 61,
+                category: "Kebudayaan",
+                text: "Apakah nama kain tenun sutra khas Makassar dan Bugis di Sulawesi Selatan yang ditenun dengan motif geometris kotak-kotak (balo lobang)?",
+                options: [
+                    { key: "A", text: "Ulos" },
+                    { key: "B", text: "Sarung Lipa' Sabbe" },
+                    { key: "C", text: "Batik Lasem" },
+                    { key: "D", text: "Songket Pandai Sikek" }
+                ],
+                answer: "B",
+                discussion: "Lipa' Sabbe adalah sarung sutra tradisional Bugis-Makassar yang bernilai prestise tinggi di kalangan adat setempat."
+            },
+            {
+                id: 62,
+                category: "Kebudayaan",
+                text: "Upacara ritus puji syukur atas kelimpahan air irigasi pertanian serta pelestarian ekosistem danau laut tawar di Bali diatur dalam sistem adat subak melalui pemujaan di pura...",
+                options: [
+                    { key: "A", text: "Pura Ulun Danu Batur" },
+                    { key: "B", text: "Pura Besakih" },
+                    { key: "C", text: "Pura Uluwatu" },
+                    { key: "D", text: "Pura Tanah Lot" }
+                ],
+                answer: "A",
+                discussion: "Sistem Subak Bali berpusat pada aliran hidrologis pegunungan dan danau, dikelola secara teo-demokratis lewat Pura Ulun Danu."
+            },
+            {
+                id: 63,
+                category: "Kebudayaan",
+                text: "Tarian perang tradisional Maluku yang melambangkan keberanian para prajurit dengan menggenggam parang (salawaku) dan tameng kayu disebut...",
+                options: [
+                    { key: "A", text: "Tari Cakalele" },
+                    { key: "B", text: "Tari Sajojo" },
+                    { key: "C", text: "Tari Lenso" },
+                    { key: "D", text: "Tari Poco-Poco" }
+                ],
+                answer: "A",
+                discussion: "Tari Cakalele adalah tari perang Maluku yang ditarikan untuk menyambut tamu agung atau merayakan kemenangan patriotik."
+            },
+            {
+                id: 64,
+                category: "Kebudayaan",
+                text: "Masyarakat pedalaman adat di Kabupaten Lebak, Banten, yang menolak menggunakan listrik, kendaraan bermotor, dan teknologi modern demi menjaga amanat leluhur adalah...",
+                options: [
+                    { key: "A", text: "Suku Baduy Dalam" },
+                    { key: "B", text: "Suku Baduy Luar" },
+                    { key: "C", text: "Suku Sunda Wiwitan" },
+                    { key: "D", text: "Suku Tengger" }
+                ],
+                answer: "A",
+                discussion: "Suku Baduy Dalam (Kanekes) memegang teguh hukum adat larangan teknologi mesin (pikukuh) untuk menjaga keharmonisan alam."
+            },
+            {
+                id: 65,
+                category: "Kebudayaan",
+                text: "Suku Asmat di Papua sangat terkenal di dunia internasional karena keahliannya di bidang seni...",
+                options: [
+                    { key: "A", text: "Seni Lukis Kaca" },
+                    { key: "B", text: "Seni Ukir Kayu Tradisional" },
+                    { key: "C", text: "Pembuatan Keramik Tanah Liat" },
+                    { key: "D", text: "Penenunan Sutra Emas" }
+                ],
+                answer: "B",
+                discussion: "Ukiran Asmat melambangkan simbol spiritual penghormatan terhadap arwah nenek moyang mereka yang divisualisasikan lewat patung tiang Bisj."
+            },
+            {
+                id: 66,
+                category: "Kebudayaan",
+                text: "Permainan alat musik tradisional bersenar banyak dari Pulau Rote, NTT, yang dibuat dari daun pohon lontar yang dikeringkan melengkung adalah...",
+                options: [
+                    { key: "A", text: "Kecapi" },
+                    { key: "B", text: "Sasando" },
+                    { key: "C", text: "Sape" },
+                    { key: "D", text: "Kolintang" }
+                ],
+                answer: "B",
+                discussion: "Sasando menggunakan daun lontar melengkung berbentuk wadah setengah bola sebagai ruang resonansi akustik dawai kawat."
+            },
+            {
+                id: 67,
+                category: "Kebudayaan",
+                text: "Apakah nama tarian sakral dari Keraton Surakarta dan Yogyakarta yang ditarikan oleh sembilan orang gadis perawan sebagai simbol keharmonisan kosmis dinasti Mataram?",
+                options: [
+                    { key: "A", text: "Tari Bedhaya Ketawang" },
+                    { key: "B", text: "Tari Jaipong" },
+                    { key: "C", text: "Tari Serimpi" },
+                    { key: "D", text: "Tari Pendet" }
+                ],
+                answer: "A",
+                discussion: "Tari Bedhaya Ketawang menceritakan hubungan spiritual magis antara pendiri Mataram Islam (Senopati) dengan penguasa laut selatan (Kanjeng Ratu Kidul)."
+            },
+            {
+                id: 68,
+                category: "Kebudayaan",
+                text: "Seni pertunjukan rakyat tradisional Madura berupa adu ketangkasan fisik berpasangan dengan saling mencambuk badan menggunakan lidi atau rotan disebut...",
+                options: [
+                    { key: "A", text: "Debus" },
+                    { key: "B", text: "Tarung Derajat" },
+                    { key: "C", text: "Ojung / Ujung" },
+                    { key: "D", text: "Pencak Silat" }
+                ],
+                answer: "C",
+                discussion: "Ojung adalah ritual tradisional Madura untuk memohon hujan sekaligus melatih keberanian dan kekebalan fisik pria."
+            },
+            {
+                id: 69,
+                category: "Kebudayaan",
+                text: "Upacara adat suku Dayak Kalimantan Timur berupa festival syukur atas kesuksesan panen padi yang dimeriahkan dengan tari-tarian hudoq bertopeng kayu adalah...",
+                options: [
+                    { key: "A", text: "Gawai Dayak" },
+                    { key: "B", text: "Lom Plai" },
+                    { key: "C", text: "Erau" },
+                    { key: "D", text: "Tiwah" }
+                ],
+                answer: "B",
+                discussion: "Lom Plai adalah ritus pesta panen adat Dayak Wehea untuk merayakan kelimpahan pangan dan restu dari dewi padi."
+            },
+            {
+                id: 70,
+                category: "Kebudayaan",
+                text: "Peninggalan prasejarah megalitik di Toraja berupa deretan tiang batu tunggal berukuran besar yang ditancapkan tegak di tanah lapangan pemakaman adat dinamakan...",
+                options: [
+                    { key: "A", text: "Sarkofagus" },
+                    { key: "B", text: "Simbuang Batu / Menhir" },
+                    { key: "C", text: "Dolmen" },
+                    { key: "D", text: "Kubur batu" }
+                ],
+                answer: "B",
+                discussion: "Simbuang Batu adalah batu menhir adat Toraja yang didirikan di rante (lapangan upacara) untuk menghormati bangsawan wafat."
+            },
+
+            // PILAR 3: SEJARAH PERJUANGAN BANGSA (71 - 100)
+            {
+                id: 71,
+                category: "Sejarah",
+                text: "Pada tahun 1908, para mahasiswa STOVIA di Batavia mendirikan organisasi pergerakan modern pertama di Indonesia yang menjadi tonggak Hari Kebangkitan Nasional. Organisasi ini bernama...",
+                options: [
+                    { key: "A", text: "Sarekat Islam" },
+                    { key: "B", text: "Budi Utomo" },
+                    { key: "C", text: "Indische Partij" },
+                    { key: "D", text: "Perhimpunan Indonesia" }
+                ],
+                answer: "B",
+                discussion: "Budi Utomo didirikan oleh Dr. Soetomo dkk atas ide dr. Wahidin Sudirohusodo pada tanggal 20 Mei 1908."
+            },
+            {
+                id: 72,
+                category: "Sejarah",
+                text: "Perundingan Linggarjati (1946) menyepakati wilayah RI secara de facto yang sangat terbatas. Wilayah manakah yang diakui Belanda dalam perundingan tersebut?",
+                options: [
+                    { key: "A", text: "Sumatra, Jawa, dan Madura" },
+                    { key: "B", text: "Hanya Jawa dan Bali" },
+                    { key: "C", text: "Seluruh wilayah bekas jajahan Hindia Belanda" },
+                    { key: "D", text: "Sumatra dan Kalimantan saja" }
+                ],
+                answer: "A",
+                discussion: "Dalam Perjanjian Linggarjati, Belanda hanya mengakui kekuasaan RI atas Jawa, Madura, dan Sumatra, memicu gelombang kekecewaan tokoh garis keras."
+            },
+            {
+                id: 73,
+                category: "Sejarah",
+                text: "Pahlawan nasional wanita asal Aceh yang melanjutkan kepemimpinan perang gerilya melawan kolonial Belanda pasca wafatnya Teuku Umar adalah...",
+                options: [
+                    { key: "A", text: "Cut Nyak Dhien" },
+                    { key: "B", text: "Cut Meutia" },
+                    { key: "C", text: "Martha Christina Tiahahu" },
+                    { key: "D", text: "Nyi Ageng Serang" }
+                ],
+                answer: "A",
+                discussion: "Cut Nyak Dhien memimpin perang gerilya di hutan Meulaboh dengan kondisi fisik yang mulai buta sebelum akhirnya dikhianati dan diasingkan ke Sumedang."
+            },
+            {
+                id: 74,
+                category: "Sejarah",
+                text: "Peristiwa penculikan Soekarno dan Mohammad Hatta ke sebuah markas pertahanan peta oleh golongan muda sebelum proklamasi kemerdekaan dikenal dengan nama Peristiwa...",
+                options: [
+                    { key: "A", text: "Peristiwa Tiga Maret" },
+                    { key: "B", text: "Peristiwa Rengasdengklok" },
+                    { key: "C", text: "Peristiwa Bandung Lautan Api" },
+                    { key: "D", text: "Peristiwa Rawagede" }
+                ],
+                answer: "B",
+                discussion: "Golongan muda membawa Soekarno-Hatta ke Rengasdengklok pada 16 Agustus 1945 untuk mendesak segera memproklamasikan kemerdekaan tanpa pengaruh Jepang."
+            },
+            {
+                id: 75,
+                category: "Sejarah",
+                text: "Konferensi Asia Afrika (KAA) yang menghasilkan Dasasila Bandung diselenggarakan pada tahun 1955. Di kota manakah pertemuan bersejarah para pemimpin negara dunia ketiga ini diadakan?",
+                options: [
+                    { key: "A", text: "Jakarta" },
+                    { key: "B", text: "Bandung" },
+                    { key: "C", text: "Bogor" },
+                    { key: "D", text: "Yogyakarta" }
+                ],
+                answer: "B",
+                discussion: "KAA diselenggarakan di Gedung Merdeka, Bandung, diprakarsai oleh Indonesia, India, Pakistan, Sri Lanka, dan Burma."
+            },
+            {
+                id: 76,
+                category: "Sejarah",
+                text: "Siapakah nama jenderal legendaris pemimpin Divisi Siliwangi yang memimpin taktik perang gerilya melintasi rute panjang (Long March) kembali ke Jawa Barat pasca Perjanjian Renville?",
+                options: [
+                    { key: "A", text: "Jenderal Sudirman" },
+                    { key: "B", text: "Jenderal A.H. Nasution" },
+                    { key: "C", text: "Letjen Urip Sumoharjo" },
+                    { key: "D", text: "Kolonel Alex Kawilarang" }
+                ],
+                answer: "B",
+                discussion: "A.H. Nasution merancang strategi pertahanan gerilya rakyat semesta dan memimpin Long March Siliwangi kembali ke pangkalan pertahanan asalnya."
+            },
+            {
+                id: 77,
+                category: "Sejarah",
+                text: "Setelah pembubaran VOC pada tanggal 31 Desember 1799, aset jajahannya di Nusantara dikuasai langsung oleh pemerintah Kerajaan Belanda. Apa faktor utama penyebab bangkrutnya VOC?",
+                options: [
+                    { key: "A", text: "Korupsi massal internal pejabat VOC dan beban biaya perang yang sangat besar" },
+                    { key: "B", text: "Serangan militer dari Inggris" },
+                    { key: "C", text: "Terjadinya bencana alam tsunami di Batavia" },
+                    { key: "D", text: "Menurunnya permintaan rempah-rempah di Eropa" }
+                ],
+                answer: "A",
+                discussion: "Korupsi akut di jajaran pejabat VOC ditambah pembiayaan perang menumpas perlawanan Sultan Hasanuddin, Diponegoro, dsb membuat kas VOC kosong habis."
+            },
+            {
+                id: 78,
+                category: "Sejarah",
+                text: "Tokoh pahlawan nasional asal Maluku yang memimpin pemberontakan bersenjata merebut Benteng Duurstede milik Belanda pada tahun 1817 adalah...",
+                options: [
+                    { key: "A", text: "Sultan Baabullah" },
+                    { key: "B", text: "Thomas Matulessy (Kapitan Pattimura)" },
+                    { key: "C", text: "Martha Christina Tiahahu" },
+                    { key: "D", text: "Sultan Nuku" }
+                ],
+                answer: "B",
+                discussion: "Kapitan Pattimura (Thomas Matulessy) memobilisasi rakyat Maluku menyerbu pertahanan benteng Belanda sebelum akhirnya ditangkap dan dihukum gantung."
+            },
+            {
+                id: 79,
+                category: "Sejarah",
+                text: "Konferensi Meja Bundar (KMB) di Den Haag Belanda berakhir dengan ditandatanganinya kedaulatan Indonesia pada tanggal...",
+                options: [
+                    { key: "A", text: "17 Agustus 1945" },
+                    { key: "B", text: "27 Desember 1949" },
+                    { key: "C", text: "10 November 1945" },
+                    { key: "D", text: "1 Maret 1949" }
+                ],
+                answer: "B",
+                discussion: "Penandatanganan dokumen pengakuan kedaulatan dilakukan secara bersamaan di Amsterdam dan Jakarta pada 27 Desember 1949."
+            },
+            {
+                id: 80,
+                category: "Sejarah",
+                text: "Apakah nama surat kabar berkala milik organisasi pergerakan Perhimpunan Indonesia yang diterbitkan di Belanda dan memuat propaganda anti-kolonial secara radikal?",
+                options: [
+                    { key: "A", text: "Medan Prijaji" },
+                    { key: "B", text: "Hindia Poetra / Indonesia Merdeka" },
+                    { key: "C", text: "Daulat Ra'jat" },
+                    { key: "D", text: "Fikiran Ra'jat" }
+                ],
+                answer: "B",
+                discussion: "Hindia Poetra diubah namanya menjadi 'Indonesia Merdeka' untuk menuntut kemerdekaan penuh tanah air secara radikal-politikal."
+            },
+            {
+                id: 81,
+                category: "Sejarah",
+                text: "Sultan Ageng Tirtayasa merupakan raja Banten yang sangat gigih memerangi dominasi dagang VOC Batavia. Konflik internal keluarganya dimanfaatkan Belanda lewat taktik adu domba dengan putranya, yaitu...",
+                options: [
+                    { key: "A", text: "Sultan Haji" },
+                    { key: "B", text: "Sultan Abdul Mufakhir" },
+                    { key: "C", text: "Pangeran Purbaya" },
+                    { key: "D", text: "Sultan Ageng" }
+                ],
+                answer: "A",
+                discussion: "Sultan Haji bersekutu dengan VOC melawan ayahnya sendiri karena ambisi takhta kekuasaan istana Banten."
+            },
+            {
+                id: 82,
+                category: "Sejarah",
+                text: "Sebelum membacakan naskah Proklamasi Kemerdekaan di Jalan Pegangsaan Timur No. 56, naskah diketik rapi dengan beberapa perubahan kata oleh seorang pemuda bernama...",
+                options: [
+                    { key: "A", text: "Sayuti Melik" },
+                    { key: "B", text: "Sukarni" },
+                    { key: "C", text: "B.M. Diah" },
+                    { key: "D", text: "Chaibul Saleh" }
+                ],
+                answer: "A",
+                discussion: "Sayuti Melik mengetik teks proklamasi yang telah disepakati dari tulisan tangan Soekarno dengan mengganti kata 'tempoh' menjadi 'tempo' dsb."
+            },
+            {
+                id: 83,
+                category: "Sejarah",
+                text: "Pertempuran dahsyat 10 November 1945 di Surabaya dipicu oleh tewasnya seorang perwira tinggi militer Inggris di dekat Jembatan Merah. Siapakah perwira tersebut?",
+                options: [
+                    { key: "A", text: "Jenderal Christison" },
+                    { key: "B", text: "Brigadir Jenderal A.W.S. Mallaby" },
+                    { key: "C", text: "Mayor Jenderal Mansergh" },
+                    { key: "D", text: "Jenderal Spoor" }
+                ],
+                answer: "B",
+                discussion: "Kematian AWS Mallaby memicu kemarahan komando militer Sekutu untuk mengeluarkan ultimatum penyerahan senjata tanpa syarat bagi arek-arek Surabaya."
+            },
+            {
+                id: 84,
+                category: "Sejarah",
+                text: "Perang Diponegoro (1825-1830) merupakan salah satu perang terbesar yang menghabiskan kas keuangan kolonial Belanda. Belanda menggunakan taktik benteng pertahanan yang dipersempit secara berkala, yaitu...",
+                options: [
+                    { key: "A", text: "Devide et Impera" },
+                    { key: "B", text: "Benteng Stelsel" },
+                    { key: "C", text: "Sistem Tanam Paksa" },
+                    { key: "D", text: "Gerilya Defensif" }
+                ],
+                answer: "B",
+                discussion: "Taktik Benteng Stelsel digagas Jenderal de Kock untuk membatasi ruang gerak pasukan Diponegoro dengan membangun pos benteng di setiap daerah taklukan."
+            },
+            {
+                id: 85,
+                category: "Sejarah",
+                text: "Siapakah nama menteri keuangan kabinet darurat pertama RI yang menggagas penerbitan Oeang Republik Indonesia (ORI) untuk menggeser mata uang Jepang dan NICA?",
+                options: [
+                    { key: "A", text: "Alexander Andries Maramis" },
+                    { key: "B", text: "Syafruddin Prawiranegara" },
+                    { key: "C", text: "Mohammad Hatta" },
+                    { key: "D", text: "Sumitro Djojohadikusumo" }
+                ],
+                answer: "A",
+                discussion: "A.A. Maramis menandatangani uang kertas pertama RI (ORI) yang resmi diluncurkan pada Oktober 1946 sebagai alat bayar kedaulatan ekonomi."
+            },
+            {
+                id: 86,
+                category: "Sejarah",
+                text: "Sumpah Pemuda dibacakan pada Kongres Pemuda II tanggal 28 Oktober 1928 di Jakarta. Di gedung milik siapakah rapat penutupan kongres bersejarah tersebut dilaksanakan?",
+                options: [
+                    { key: "A", text: "Sie Kong Lian" },
+                    { key: "B", text: "Raden Saleh" },
+                    { key: "C", text: "A.M. Sangaji" },
+                    { key: "D", text: "Soegondo Djojopoespito" }
+                ],
+                answer: "A",
+                discussion: "Gedung di Jalan Kramat Raya 106 milik Sie Kong Lian disewa para pemuda dan kini diabadikan sebagai Museum Sumpah Pemuda."
+            },
+            {
+                id: 87,
+                category: "Sejarah",
+                text: "Belanda menerapkan kebijakan politik etis (balas budi) di awal abad ke-20 atas desakan tulisan Conrad Theodor van Deventer. Tiga pilar utama politik etis tersebut adalah...",
+                options: [
+                    { key: "A", text: "Irigasi, Edukasi, dan Migrasi / Kolonisasi" },
+                    { key: "B", text: "Monopoli, Eksploitasi, dan Penjajahan" },
+                    { key: "C", text: "Komersialisasi, Transportasi, dan Swastanisasi" },
+                    { key: "D", text: "Asimilasi, Ekstraksi, dan Pajak Bumi" }
+                ],
+                answer: "A",
+                discussion: "Tiga pilar Politik Balas Budi: Irigasi (pengairan sawah), Edukasi (sekolah rakyat), dan Emigrasi/Transmigrasi tenaga kerja perkebunan Belanda."
+            },
+            {
+                id: 88,
+                category: "Sejarah",
+                text: "Gubernur Jenderal Belanda yang memerintahkan pembuatan jalan raya sepanjang kurang lebih 1000 km dari Anyer hingga Panarukan (Grote Postweg) adalah...",
+                options: [
+                    { key: "A", text: "Johannes van den Bosch" },
+                    { key: "B", text: "Herman Willem Daendels" },
+                    { key: "C", text: "Thomas Stamford Raffles" },
+                    { key: "D", text: "Jan Pieterzoon Coen" }
+                ],
+                answer: "B",
+                discussion: "Daendels membangun jalan raya pos untuk mobilisasi cepat pasukan militer dalam rangka mempertahankan Pulau Jawa dari serangan Inggris."
+            },
+            {
+                id: 89,
+                category: "Sejarah",
+                text: "Perjanjian Renville (1948) yang ditandatangani di atas kapal perang Angkatan Laut Amerika Serikat sangat merugikan pihak RI. Siapakah ketua delegasi Indonesia dalam perundingan tersebut?",
+                options: [
+                    { key: "A", text: "Sutan Sjahrir" },
+                    { key: "B", text: "Amir Sjarifuddin" },
+                    { key: "C", text: "Mohammad Roem" },
+                    { key: "D", text: "Ali Sastroamidjojo" }
+                ],
+                answer: "B",
+                discussion: "Perdana Menteri Amir Sjarifuddin bertindak sebagai ketua delegasi RI, hasil perjanjian memicu jatuhnya kabinet Amir karena dianggap gagal berdiplomasi."
+            },
+            {
+                id: 90,
+                category: "Sejarah",
+                text: "Organisasi serikat buruh dagang berbasis Islam pertama di Surakarta yang didirikan oleh Haji Samanhudi pada tahun 1911 sebelum bertransformasi menjadi parpol massa adalah...",
+                options: [
+                    { key: "A", text: "Sarekat Dagang Islam" },
+                    { key: "B", text: "Budi Utomo" },
+                    { key: "C", text: "Muhammadiyah" },
+                    { key: "D", text: "Perserikatan Nasional Indonesia" }
+                ],
+                answer: "A",
+                discussion: "Sarekat Dagang Islam didirikan untuk melindungi kepentingan pedagang batik pribumi dari monopoli pedagang Tionghoa."
+            },
+            {
+                id: 91,
+                category: "Sejarah",
+                text: "Perang Banjar di Kalimantan dipimpin oleh seorang tokoh kesultanan legendaris yang gigih melawan keserakahan ekspansi batubara Belanda sampai wafat di pengasingan. Tokoh pahlawan ini bernama...",
+                options: [
+                    { key: "A", text: "Pangeran Antasari" },
+                    { key: "B", text: "Sultan Hasanuddin" },
+                    { key: "C", text: "Pangeran Hidayatullah" },
+                    { key: "D", text: "Sultan Adam" }
+                ],
+                answer: "A",
+                discussion: "Pangeran Antasari meluncurkan semboyan perjuangan 'Waja Sampai Kaputing' (berjuang sampai titik darah penghabisan)."
+            },
+            {
+                id: 92,
+                category: "Sejarah",
+                text: "Badan bentukan militer angkatan darat XVI Jepang yang diketuai oleh KRT Radjiman Wedyodiningrat untuk mempersiapkan dasar negara Indonesia Merdeka adalah...",
+                options: [
+                    { key: "A", text: "BPUPKI (Dokuritsu Junbi Cosakai)" },
+                    { key: "B", text: "PPKI (Dokuritsu Junbi Inkai)" },
+                    { key: "C", text: "Chuo Sangi In" },
+                    { key: "D", text: "Keimin Bunka Shidosho" }
+                ],
+                answer: "A",
+                discussion: "BPUPKI dibentuk pada April 1945 untuk menyelidiki dan merumuskan rancangan dasar negara Pancasila serta UUD."
+            },
+            {
+                id: 93,
+                category: "Sejarah",
+                text: "Tokoh pahlawan nasional asal Sumatera Barat yang dikenal sebagai Singa Minangkabau karena memimpin perlawanan bersenjata dalam Perang Padri (1821-1837) adalah...",
+                options: [
+                    { key: "A", text: "Tuanku Imam Bonjol" },
+                    { key: "B", text: "Tuanku Tambusai" },
+                    { key: "C", text: "Pangeran Diponegoro" },
+                    { key: "D", text: "Sultan Syarif Kasim II" }
+                ],
+                answer: "A",
+                discussion: "Tuanku Imam Bonjol (Peto Syarif) berhasil menyatukan kaum adat dan kaum padri dalam koalisi perang semesta melawan Belanda."
+            },
+            {
+                id: 94,
+                category: "Sejarah",
+                text: "Serangan Umum 1 Maret 1949 di Yogyakarta berhasil menduduki kota selama 6 jam untuk membuktikan kedaulatan militer RI di mata PBB. Ide gagasan strategis penyerangan ini diinisiasi oleh...",
+                options: [
+                    { key: "A", text: "Sri Sultan Hamengkubuwono IX dan Jenderal Sudirman" },
+                    { key: "B", text: "Letkol Soeharto saja" },
+                    { key: "C", text: "Syafruddin Prawiranegara" },
+                    { key: "D", text: "Sutan Sjahrir" }
+                ],
+                answer: "A",
+                discussion: "Sri Sultan HB IX mengirim surat kepada Jenderal Sudirman mengusulkan serangan kejutan untuk mematahkan kebohongan propaganda Belanda di DK PBB."
+            },
+            {
+                id: 95,
+                category: "Sejarah",
+                text: "Lembaga kepanduan kepemudaan nasional bercorak kepanduan pertama yang didirikan oleh tokoh bumiputera di Surakarta pada masa pergerakan nasional bernama...",
+                options: [
+                    { key: "A", text: "Javaansche Padvinders Organisatie (JPO)" },
+                    { key: "B", text: "Kepanduan Bangsa Indonesia" },
+                    { key: "C", text: "Pandu Rakyat Indonesia" },
+                    { key: "D", text: "Gerakan Pramuka" }
+                ],
+                answer: "A",
+                discussion: "JPO didirikan atas prakarsa Mangkunegara VII pada tahun 1916 untuk mendidik mental disiplin pemuda Jawa."
+            },
+            {
+                id: 96,
+                category: "Sejarah",
+                text: "Kapal perang legendaris milik armada laut Kerajaan Sriwijaya kuno yang mampu menampung ratusan awak kapal untuk ekspedisi militer niaga regional dinamakan...",
+                options: [
+                    { key: "A", text: "Kapal Cadik Jong / Jung Nusantara" },
+                    { key: "B", text: "Kapal Pinisi" },
+                    { key: "C", text: "KRI Macan Tutul" },
+                    { key: "D", text: "Kapal Lancang Kuning" }
+                ],
+                answer: "A",
+                discussion: "Jung Nusantara adalah kapal niaga samudera bertonase besar yang melambangkan supremasi peradaban maritim Indonesia kuno."
+            },
+            {
+                id: 97,
+                category: "Sejarah",
+                text: "Tokoh militer Indonesia yang gugur dalam pertempuran laut mengorbankan jiwanya di atas KRI Macan Tutul melawan kapal perusak Belanda di Laut Aru demi pembebasan Irian Barat adalah...",
+                options: [
+                    { key: "A", text: "Komodor Yos Sudarso" },
+                    { key: "B", text: "Laksamana Malahayati" },
+                    { key: "C", text: "Laksamana John Lie" },
+                    { key: "D", text: "Laksamana Martadinata" }
+                ],
+                answer: "A",
+                discussion: "Yos Sudarso gugur pahlawan setelah menginstruksikan 'Kobarkan semangat pertempuran!' melalui radio sebelum kapalnya karam ditembak Belanda."
+            },
+            {
+                id: 98,
+                category: "Sejarah",
+                text: "Prasasti peninggalan tertua dari Kerajaan Kutai di Kalimantan Timur yang dipahat pada tiang batu pengikat hewan korban persembahan upacara sedekah raja disebut...",
+                options: [
+                    { key: "A", text: "Prasasti Yupa" },
+                    { key: "B", text: "Prasasti Ciaruteun" },
+                    { key: "C", text: "Prasasti Kedukan Bukit" },
+                    { key: "D", text: "Prasasti Tugu" }
+                ],
+                answer: "A",
+                discussion: "Tujuh prasasti Yupa bertuliskan huruf Pallawa dan bahasa Sanskerta mengisahkan kedermawanan Raja Mulawarman yang menyumbangkan 20.000 ekor sapi."
+            },
+            {
+                id: 99,
+                category: "Sejarah",
+                text: "Tokoh diplomat ulung wanita pertama Indonesia yang dipercaya memimpin perwakilan misi diplomasi RI dalam memperjuangkan kedaulatan laut teritorial (Deklarasi Djuanda) di forum hukum laut internasional adalah...",
+                options: [
+                    { key: "A", text: "Maria Ulfah Soebadio" },
+                    { key: "B", text: "Laili Roesad" },
+                    { key: "C", text: "Rasuna Said" },
+                    { key: "D", text: "Kowani" }
+                ],
+                answer: "B",
+                discussion: "Laili Roesad adalah diplomat karir perempuan pertama RI yang bertugas tangguh mewakili negara di forum PBB dan berbagai pos kedutaan besar luar negeri."
+            },
+            {
+                id: 100,
+                category: "Sejarah",
+                text: "Kerajaan Islam pertama di Pulau Jawa yang didirikan oleh Raden Patah dengan bantuan moral dan militer dari Wali Songo adalah...",
+                options: [
+                    { key: "A", text: "Kesultanan Demak" },
+                    { key: "B", text: "Kesultanan Pajang" },
+                    { key: "C", text: "Kesultanan Banten" },
+                    { key: "D", text: "Kesultanan Mataram" }
+                ],
+                answer: "A",
+                discussion: "Demak berdiri sebagai pusat syiar agama Islam pertama di Jawa seiring meredupnya kekuatan kekuasaan Majapahit pada akhir abad ke-15."
+            }
+        ];
+
+        // Global State variables
+        let questions = [];
+        let currentMode = 'simulasi'; // 'simulasi', 'santai', 'category'
+        let currentCategoryFilter = '';
+        let currentQuestionIndex = 0;
+        let answers = {}; // format: { questionId: selectedOptionKey }
+        let flagged = {}; // format: { questionId: true/false }
+        let timerInterval = null;
+        let timeLeft = 2700; // 45 mins
+        let isSoundEnabled = true;
+        let examSubmitted = false;
+
+        // Sound Synthesizer via Web Audio API (100% Offline-Safe)
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSynthSound(freq, duration, type = 'sine') {
+            if (!isSoundEnabled) return;
+            try {
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                
+                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.005, audioCtx.currentTime + duration);
+                
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch (e) {
+                console.warn('Audio synthesis failed:', e);
+            }
+        }
+
+        const sounds = {
+            correct() {
+                playSynthSound(523.25, 0.1, 'triangle'); // C5
+                setTimeout(() => playSynthSound(659.25, 0.15, 'triangle'), 80); // E5
+            },
+            wrong() {
+                playSynthSound(180, 0.25, 'sawtooth');
+            },
+            click() {
+                playSynthSound(800, 0.05, 'sine');
+            },
+            flag() {
+                playSynthSound(440, 0.1, 'sine');
+            },
+            trophy() {
+                const notes = [523.25, 659.25, 783.99, 1046.50]; // Arpeggio C Major
+                notes.forEach((freq, idx) => {
+                    setTimeout(() => playSynthSound(freq, 0.2, 'triangle'), idx * 120);
+                });
+            }
+        };
+
+        // App Initialization
+        window.onload = function() {
+            loadQuestionsFromStorage();
+            updateDashboardStats();
+            document.getElementById('user-display').innerText = localStorage.getItem('lccm_user') || 'Calon Juara Nasional';
+        };
+
+        function loadQuestionsFromStorage() {
+            const stored = localStorage.getItem('lccm_questions');
+            if (stored) {
+                try {
+                    questions = JSON.parse(stored);
+                    // Validasi integritas data
+                    if (questions.length === 0) throw new Error("Kosong");
+                } catch(e) {
+                    questions = [...defaultQuestions];
+                    localStorage.setItem('lccm_questions', JSON.stringify(questions));
+                }
+            } else {
+                questions = [...defaultQuestions];
+                localStorage.setItem('lccm_questions', JSON.stringify(questions));
+            }
+            updateDashboardStats();
+        }
+
+        // Custom Modal helper
+        function showCustomConfirm(title, message, onConfirm) {
+            const modal = document.getElementById('custom-modal');
+            const mTitle = document.getElementById('modal-title');
+            const mMsg = document.getElementById('modal-message');
+            const btnConfirm = document.getElementById('modal-btn-confirm');
+            const btnCancel = document.getElementById('modal-btn-cancel');
+
+            mTitle.innerText = title;
+            mMsg.innerText = message;
+            modal.classList.remove('hidden');
+
+            btnConfirm.onclick = function() {
+                modal.classList.add('hidden');
+                onConfirm();
+            };
+            btnCancel.onclick = function() {
+                modal.classList.add('hidden');
+            };
+        }
+
+        // Toast Helper
+        function showToast(message, icon = '💡') {
+            const toast = document.getElementById('toast-banner');
+            const tText = document.getElementById('toast-text');
+            const tIcon = document.getElementById('toast-icon');
+
+            tText.innerText = message;
+            tIcon.innerText = icon;
+            toast.classList.remove('hidden');
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Sound setting toggling
+        function toggleSound() {
+            isSoundEnabled = !isSoundEnabled;
+            const btn = document.getElementById('btn-sound');
+            const icon = document.getElementById('sound-icon');
+            if (isSoundEnabled) {
+                icon.innerText = '🔊';
+                showToast("Efek suara diaktifkan!", "🔊");
+                sounds.click();
+            } else {
+                icon.innerText = '🔇';
+                showToast("Efek suara dimatikan!", "🔇");
+            }
+        }
+
+        // Dashboard Stats Updates
+        function updateDashboardStats() {
+            document.getElementById('stat-total-questions').innerText = `${questions.length} Soal`;
+            
+            const history = JSON.parse(localStorage.getItem('lccm_history') || '[]');
+            const attempts = history.length;
+            document.getElementById('stat-attempts').innerText = `${attempts} Kali`;
+
+            if (attempts > 0) {
+                const best = Math.max(...history.map(h => h.score));
+                document.getElementById('stat-high-score').innerText = `${best} / 100`;
+
+                const avg = Math.round(history.reduce((acc, curr) => acc + curr.accuracy, 0) / attempts);
+                document.getElementById('stat-avg-correct').innerText = `${avg}%`;
+            } else {
+                document.getElementById('stat-high-score').innerText = '0 / 100';
+                document.getElementById('stat-avg-correct').innerText = '0%';
+            }
+        }
+
+        // Start Quiz Engine
+        function startQuizMode(mode, category = '') {
+            sounds.click();
+            currentMode = mode;
+            currentCategoryFilter = category;
+            examSubmitted = false;
+            answers = {};
+            flagged = {};
+            currentQuestionIndex = 0;
+
+            // Filter questions if category is specified
+            let activeQuestions = [...questions];
+            if (mode === 'category' && category) {
+                activeQuestions = questions.filter(q => q.category === category);
+                if (activeQuestions.length === 0) {
+                    showToast("Tidak ada pertanyaan kategori ini!", "⚠️");
+                    return;
+                }
+            }
+
+            // Shuffle option arrays for authenticity
+            activeQuestions = activeQuestions.map(q => {
+                return {
+                    ...q,
+                    options: [...q.options].sort(() => Math.random() - 0.5)
+                };
+            });
+
+            // Randomize and limit question sequence in 'simulasi' mode to prevent layout memorization
+            if (mode === 'simulasi') {
+                // Simulasi standard CBT TKA: 50 soal pilihan acak secara seimbang dari kategori
+                const p1 = activeQuestions.filter(q => q.category === 'Permuseuman').sort(() => Math.random() - 0.5).slice(0, 20);
+                const p2 = activeQuestions.filter(q => q.category === 'Kebudayaan').sort(() => Math.random() - 0.5).slice(0, 15);
+                const p3 = activeQuestions.filter(q => q.category === 'Sejarah').sort(() => Math.random() - 0.5).slice(0, 15);
+                activeQuestions = [...p1, ...p2, ...p3].sort(() => Math.random() - 0.5);
+            }
+
+            // Bind active running question set
+            window.activeQuizQuestions = activeQuestions;
+
+            // Timer management
+            clearInterval(timerInterval);
+            const timerContainer = document.getElementById('quiz-timer-container');
+            
+            if (mode === 'simulasi') {
+                timeLeft = activeQuestions.length * 54; // 45 menit untuk 50 soal (54 detik per soal)
+                timerContainer.classList.remove('hidden');
+                updateTimerUI();
+                timerInterval = setInterval(() => {
+                    timeLeft--;
+                    updateTimerUI();
+                    if (timeLeft <= 0) {
+                        clearInterval(timerInterval);
+                        forceSubmitExam();
+                    }
+                }, 1000);
+            } else {
+                timerContainer.classList.add('hidden');
+            }
+
+            // Toggle Screens
+            document.getElementById('section-dashboard').classList.add('hidden');
+            document.getElementById('section-analysis').classList.add('hidden');
+            document.getElementById('section-quiz').classList.remove('hidden');
+
+            // Badges Configuration
+            const modeBadge = document.getElementById('quiz-mode-badge');
+            const catBadge = document.getElementById('quiz-category-badge');
+
+            if (mode === 'simulasi') {
+                modeBadge.innerText = '⚡ Simulasi Real TKA';
+                modeBadge.className = "bg-amber-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-full uppercase";
+                catBadge.classList.add('hidden');
+            } else if (mode === 'santai') {
+                modeBadge.innerText = '📖 Latihan Mandiri';
+                modeBadge.className = "bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase";
+                catBadge.classList.add('hidden');
+            } else if (mode === 'category') {
+                modeBadge.innerText = '🎯 Fokus';
+                modeBadge.className = "bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase";
+                catBadge.innerText = category;
+                catBadge.classList.remove('hidden');
+            }
+
+            // Start Render
+            renderQuestion();
+            renderNavigation();
+            showToast("Ujian TKA dimulai! Fokus & teliti.", "🎓");
+        }
+
+        // Timer Rendering
+        function updateTimerUI() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            const timerSpan = document.getElementById('quiz-timer');
+            timerSpan.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            // Urgency Alerting Color Switch
+            const container = document.getElementById('quiz-timer-container');
+            if (timeLeft < 180) { // under 3 minutes
+                container.className = "flex items-center space-x-2 bg-red-600 text-white px-3 py-1.5 rounded-lg font-bold animate-pulse text-xs";
+            } else {
+                container.className = "flex items-center space-x-2 bg-red-50 text-red-700 px-3 py-1.5 rounded-lg font-bold border border-red-100 text-xs";
+            }
+        }
+
+        // Render Current Active Question Card
+        function renderQuestion() {
+            const currentQuestions = window.activeQuizQuestions;
+            const q = currentQuestions[currentQuestionIndex];
+
+            // Header Data
+            document.getElementById('q-category').innerText = `Kategori: ${q.category}`;
+            document.getElementById('q-progress').innerText = `Soal ${currentQuestionIndex + 1} dari ${currentQuestions.length}`;
+            
+            // Progress Bar
+            const percent = ((currentQuestionIndex + 1) / currentQuestions.length) * 100;
+            document.getElementById('q-progress-bar').style.width = `${percent}%`;
+
+            // Question Text
+            document.getElementById('q-text').innerText = q.text;
+
+            // Render Choices Options
+            const container = document.getElementById('q-options-container');
+            container.innerHTML = '';
+
+            const selectedAnswer = answers[q.id];
+
+            q.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-3.5 rounded-xl border transition-all flex items-center space-x-4 focus:outline-none text-xs md:text-sm ";
+                
+                if (selectedAnswer === opt.key) {
+                    btn.className += "border-amber-500 bg-amber-50 text-slate-950 font-semibold shadow-sm transform scale-[1.005]";
+                } else {
+                    btn.className += "border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 hover:border-slate-300";
+                }
+
+                btn.onclick = () => selectOption(opt.key);
+
+                // Option Indicator circle
+                const indicator = document.createElement('span');
+                indicator.className = "w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold transition-colors shrink-0 ";
+                
+                if (selectedAnswer === opt.key) {
+                    indicator.className += "bg-amber-500 text-white";
+                } else {
+                    indicator.className += "bg-slate-200 text-slate-600";
+                }
+                indicator.innerText = opt.key;
+
+                const textSpan = document.createElement('span');
+                textSpan.className = "flex-grow leading-relaxed";
+                textSpan.innerText = opt.text;
+
+                btn.appendChild(indicator);
+                btn.appendChild(textSpan);
+                container.appendChild(btn);
+            });
+
+            // Instant Discussion check in Latihan Santai Mode
+            const discussBox = document.getElementById('instant-pembahasan');
+            if (currentMode === 'santai' && selectedAnswer) {
+                discussBox.classList.remove('hidden');
+                const isCorrect = (selectedAnswer === q.answer);
+                document.getElementById('instant-pembahasan-text').innerHTML = `
+                    <div class="mb-1">Anda Menjawab: <span class="font-bold ${isCorrect ? 'text-emerald-700' : 'text-red-600'}">${selectedAnswer}</span> (${isCorrect ? 'BENAR' : 'SALAH'})</div>
+                    <div>Jawaban Benar: <span class="font-bold text-emerald-700">${q.answer}</span></div>
+                    <div class="mt-2 text-slate-600 leading-relaxed italic text-xs border-t pt-1.5">${q.discussion}</div>
+                `;
+            } else {
+                discussBox.classList.add('hidden');
+            }
+
+            // Flag state decoration
+            const flagBtn = document.getElementById('btn-flag');
+            if (flagged[q.id]) {
+                flagBtn.className = "px-4 py-2.5 bg-amber-500 text-slate-950 font-bold text-xs rounded-xl hover:bg-amber-600 transition flex items-center gap-1 shadow-md";
+            } else {
+                flagBtn.className = "px-4 py-2.5 bg-amber-50 border border-amber-300 text-amber-800 text-xs font-semibold rounded-xl hover:bg-amber-100 transition flex items-center gap-1";
+            }
+
+            // Disable/Enable Navigation controls
+            document.getElementById('btn-prev').disabled = (currentQuestionIndex === 0);
+            document.getElementById('btn-prev').className = currentQuestionIndex === 0 
+                ? "opacity-50 px-4 py-2.5 bg-slate-100 text-slate-400 text-xs font-semibold rounded-xl cursor-not-allowed flex items-center gap-1"
+                : "px-4 py-2.5 bg-white border border-slate-300 text-slate-700 text-xs font-semibold rounded-xl hover:bg-slate-50 transition flex items-center gap-1";
+
+            const isLast = (currentQuestionIndex === currentQuestions.length - 1);
+            if (isLast) {
+                document.getElementById('btn-next').classList.add('hidden');
+                document.getElementById('btn-finish-quiz').classList.remove('hidden');
+            } else {
+                document.getElementById('btn-next').classList.remove('hidden');
+                document.getElementById('btn-finish-quiz').classList.add('hidden');
+            }
+        }
+
+        // Selection Trigger handler
+        function selectOption(optionKey) {
+            const currentQuestions = window.activeQuizQuestions;
+            const q = currentQuestions[currentQuestionIndex];
+            
+            const prevAnswer = answers[q.id];
+            answers[q.id] = optionKey;
+
+            sounds.click();
+            
+            if (currentMode === 'santai' && !prevAnswer) {
+                if (optionKey === q.answer) {
+                    sounds.correct();
+                } else {
+                    sounds.wrong();
+                }
+            }
+
+            renderQuestion();
+            renderNavigation();
+        }
+
+        // Flag Question helper
+        function toggleFlag() {
+            sounds.flag();
+            const currentQuestions = window.activeQuizQuestions;
+            const q = currentQuestions[currentQuestionIndex];
+            flagged[q.id] = !flagged[q.id];
+            renderQuestion();
+            renderNavigation();
+        }
+
+        // Step back/forward questions
+        function navigateQuestion(step) {
+            sounds.click();
+            const newIndex = currentQuestionIndex + step;
+            if (newIndex >= 0 && newIndex < window.activeQuizQuestions.length) {
+                currentQuestionIndex = newIndex;
+                renderQuestion();
+                renderNavigation();
+            }
+        }
+
+        // Grid Navigation Panel populate - TKA STANDAR (Compact, Rapi)
+        function renderNavigation() {
+            const container = document.getElementById('grid-navigation');
+            container.innerHTML = '';
+
+            const currentQuestions = window.activeQuizQuestions;
+
+            currentQuestions.forEach((q, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-8 h-8 text-[11px] font-bold rounded-md transition-all flex items-center justify-center border focus:outline-none shrink-0 ";
+
+                const isSelected = (currentQuestionIndex === idx);
+                const hasAnswered = answers[q.id] !== undefined;
+                const isFlagged = flagged[q.id] === true;
+
+                // Color priority styling hierarchy
+                if (isSelected) {
+                    btn.className += "ring-2 ring-slate-900 border-transparent scale-105 z-10 ";
+                }
+
+                if (isFlagged) {
+                    btn.className += "bg-amber-500 text-slate-950 border-amber-600";
+                } else if (hasAnswered) {
+                    btn.className += "bg-emerald-500 text-white border-emerald-600 shadow-xs";
+                } else {
+                    btn.className += "bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100";
+                }
+
+                btn.innerText = (idx + 1).toString();
+                btn.onclick = () => {
+                    sounds.click();
+                    currentQuestionIndex = idx;
+                    renderQuestion();
+                    renderNavigation();
+                };
+
+                container.appendChild(btn);
+            });
+        }
+
+        // Safe Exit Confirmation
+        function confirmExitQuiz() {
+            sounds.flag();
+            showCustomConfirm(
+                "Konfirmasi Keluar",
+                "Apakah Anda yakin ingin keluar dari kuis? Seluruh progress pengerjaan saat ini tidak akan disimpan ke riwayat stats.",
+                () => {
+                    clearInterval(timerInterval);
+                    navigateToDashboard();
+                }
+            );
+        }
+
+        // Safe Complete Confirmation
+        function confirmSubmitExam() {
+            sounds.trophy();
+            const total = window.activeQuizQuestions.length;
+            const answeredCount = Object.keys(answers).length;
+            const remaining = total - answeredCount;
+
+            let msg = `Anda telah menjawab ${answeredCount} dari ${total} soal. `;
+            if (remaining > 0) {
+                msg += `Masih ada ${remaining} soal yang belum Anda isi. `;
+            }
+            msg += "Apakah Anda yakin ingin mengakhiri dan mengunci lembar jawaban sekarang?";
+
+            showCustomConfirm(
+                "Selesaikan Ujian?",
+                msg,
+                () => {
+                    submitExam();
+                }
+            );
+        }
+
+        // Auto force-submit on timer end
+        function forceSubmitExam() {
+            showToast("Waktu pengerjaan telah habis! Data otomatis tersimpan.", "⏱️");
+            submitExam();
+        }
+
+        // Core scoring and pedagogy metrics engine
+        function submitExam() {
+            clearInterval(timerInterval);
+            examSubmitted = true;
+
+            const currentQuestions = window.activeQuizQuestions;
+            
+            let correctCount = 0;
+            let wrongCount = 0;
+            let skippedCount = 0;
+
+            const catStats = {
+                Permuseuman: { total: 0, correct: 0 },
+                Kebudayaan: { total: 0, correct: 0 },
+                Sejarah: { total: 0, correct: 0 }
+            };
+
+            currentQuestions.forEach(q => {
+                if (catStats[q.category]) {
+                    catStats[q.category].total++;
+                }
+
+                const userAns = answers[q.id];
+                if (!userAns) {
+                    skippedCount++;
+                } else if (userAns === q.answer) {
+                    correctCount++;
+                    if (catStats[q.category]) {
+                        catStats[q.category].correct++;
+                    }
+                } else {
+                    wrongCount++;
+                }
+            });
+
+            // Math score conversions
+            const score = Math.round((correctCount / currentQuestions.length) * 100);
+            const accuracy = Math.round((correctCount / (correctCount + wrongCount || 1)) * 100);
+
+            // Time calculation
+            let timeSpentStr = "00:00";
+            if (currentMode === 'simulasi') {
+                const totalSecs = (currentQuestions.length * 54) - timeLeft;
+                const m = Math.floor(totalSecs / 60);
+                const s = totalSecs % 60;
+                timeSpentStr = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+            } else {
+                timeSpentStr = "N/A (Latihan)";
+            }
+
+            // Save Attempt to localStorage
+            const history = JSON.parse(localStorage.getItem('lccm_history') || '[]');
+            history.push({
+                date: new Date().toLocaleDateString('id-ID'),
+                score: score,
+                accuracy: accuracy,
+                correct: correctCount,
+                wrong: wrongCount,
+                skipped: skippedCount,
+                timeSpent: timeSpentStr,
+                mode: currentMode
+            });
+            localStorage.setItem('lccm_history', JSON.stringify(history));
+
+            // Populate Score results in view screen
+            document.getElementById('analysis-score').innerText = score;
+            document.getElementById('analysis-time-spent').innerText = `⏱️ Waktu: ${timeSpentStr}`;
+            document.getElementById('analysis-correct').innerText = correctCount;
+            document.getElementById('analysis-wrong').innerText = wrongCount;
+            document.getElementById('analysis-skipped').innerText = skippedCount;
+
+            // Evaluation title classification based on educational bands
+            const badgeTitle = document.getElementById('analysis-title-badge');
+            const feedbackTitle = document.getElementById('analysis-feedback-title');
+            const feedbackDesc = document.getElementById('analysis-feedback-desc');
+
+            if (score >= 90) {
+                badgeTitle.innerText = "🏆 DUTA CAGAR BUDAYA NASIONAL";
+                badgeTitle.className = "bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase";
+                feedbackTitle.innerText = "Sempurna! Anda Memiliki Kompetensi Duta Nasional!";
+                feedbackDesc.innerText = "Penguasaan konsep, memori historis, dan pemahaman regulasi permuseuman Anda sangat mengagumkan. Sangat siap menjadi andalan utusan sekolah di kancah nasional LCCM.";
+                sounds.trophy();
+            } else if (score >= 70) {
+                badgeTitle.innerText = "🥈 FINALIS PROVINSI";
+                badgeTitle.className = "bg-indigo-100 text-indigo-800 text-xs font-bold px-3 py-1 rounded-full uppercase";
+                feedbackTitle.innerText = "Hebat! Anda Siap Masuk Babak Final!";
+                feedbackDesc.innerText = "Pondasi wawasan Anda sangat solid. Fokuslah menambal kekosongan informasi kecil di bawah ini agar skor Anda merangkak naik melebihi batas 90 poin.";
+            } else {
+                badgeTitle.innerText = "🎒 ARKEOLOG MAGANG";
+                badgeTitle.className = "bg-slate-100 text-slate-700 text-xs font-bold px-3 py-1 rounded-full uppercase";
+                feedbackTitle.innerText = "Tetap Semangat! Teruskan Berlatih Tanpa Lelah.";
+                feedbackDesc.innerText = "Menguasai 100 soal variasi TKA memang membutuhkan ketahanan memori. Gunakan latihan santai untuk mempelajari pembahasan akademis secara berulang.";
+            }
+
+            // Category Bar breakdown math Calculations
+            const statsM = calculateCatPercent(catStats.Permuseuman);
+            const statsK = calculateCatPercent(catStats.Kebudayaan);
+            const statsS = calculateCatPercent(catStats.Sejarah);
+
+            updateBar('m', statsM);
+            updateBar('k', statsK);
+            updateBar('s', statsS);
+
+            // Generate pedagogical custom recommendations on weaknesses
+            generatePedagogicalRecommendation(statsM, statsK, statsS);
+
+            // Badges awarding check
+            awardBadges(score, statsS, statsM);
+
+            // Populate Review list with Detailed Explanations
+            renderDetailedReview();
+
+            // Toggle Panels
+            document.getElementById('section-quiz').classList.add('hidden');
+            document.getElementById('section-analysis').classList.remove('hidden');
+
+            updateDashboardStats();
+        }
+
+        // Percent compiler
+        function calculateCatPercent(stat) {
+            if (!stat || stat.total === 0) return 0;
+            return Math.round((stat.correct / stat.total) * 100);
+        }
+
+        // Graph renderer helper
+        function updateBar(key, percentage) {
+            const bar = document.getElementById(`progress-bar-${key}`);
+            const text = document.getElementById(`progress-text-${key}`);
+            bar.style.width = `${percentage}%`;
+            text.innerText = `${percentage}%`;
+        }
+
+        // Educational Action Feedback generator
+        function generatePedagogicalRecommendation(pm, kb, sj) {
+            const rec = document.getElementById('pedagogical-recommendation');
+            let text = "Rekomendasi Terarah: ";
+
+            const minVal = Math.min(pm, kb, sj);
+
+            if (pm === kb && kb === sj && pm >= 90) {
+                text = "Kemampuan luar biasa! Fokus Anda sekarang adalah kecepatan menjawab bel rebutan. Gunakan simulasi TKA berulang kali agar terbiasa berpikir taktis di bawah tekanan durasi.";
+            } else if (minVal === pm) {
+                text = "Fokus Belajar Utama: Bidang **Permuseuman & Cagar Budaya** masih menjadi titik terlemah Anda saat ini (Skor: " + pm + "%). Pelajari kembali pasal-pasal fundamental dalam UU Cagar Budaya No 11 Tahun 2010 dan pembagian peran petugas teknis sesuai PP No 66 Tahun 2015.";
+            } else if (minVal === kb) {
+                text = "Fokus Belajar Utama: Bidang **Kebudayaan Nusantara** perlu dipoles lebih dalam (Skor: " + kb + "%). Luangkan waktu ekstra untuk meninjau klasifikasi rumah adat, makna tari sakral istana, dan benda-benda prasejarah megalitikum.";
+            } else {
+                text = "Fokus Belajar Utama: Nilai **Sejarah Perjuangan Bangsa** Anda masih tertinggal (Skor: " + sj + "%). Bacalah literatur mengenai kronologi perundingan-perundingan kemerdekaan (Linggarjati, Renville, Roem-Royen, KMB) serta strategi perang gerilya pahlawan daerah.";
+            }
+
+            rec.innerHTML = text;
+        }
+
+        // Achievements system
+        function awardBadges(score, sjScore, pmScore) {
+            const bPioneer = document.getElementById('badge-pioneer');
+            const bHistory = document.getElementById('badge-history');
+            const bMuseum = document.getElementById('badge-museum');
+            const bChampion = document.getElementById('badge-champion');
+
+            bPioneer.className = "p-3 border border-slate-100 rounded-xl bg-slate-50 text-center space-y-1 transition opacity-40";
+            bHistory.className = "p-3 border border-slate-100 rounded-xl bg-slate-50 text-center space-y-1 transition opacity-40";
+            bMuseum.className = "p-3 border border-slate-100 rounded-xl bg-slate-50 text-center space-y-1 transition opacity-40";
+            bChampion.className = "p-3 border border-slate-100 rounded-xl bg-slate-50 text-center space-y-1 transition opacity-40";
+
+            // Pioneer badge (min 1 attempt)
+            bPioneer.className = "p-3 border border-emerald-200 rounded-xl bg-emerald-50 text-center space-y-1 transition transform hover:scale-105";
+            bPioneer.querySelector('h4').className = "font-bold text-[10px] text-emerald-800";
+
+            if (sjScore >= 80) {
+                bHistory.className = "p-3 border border-indigo-200 rounded-xl bg-indigo-50 text-center space-y-1 transition transform hover:scale-105";
+                bHistory.querySelector('h4').className = "font-bold text-[10px] text-indigo-800";
+            }
+            if (pmScore >= 80) {
+                bMuseum.className = "p-3 border border-amber-200 rounded-xl bg-amber-50 text-center space-y-1 transition transform hover:scale-105";
+                bMuseum.querySelector('h4').className = "font-bold text-[10px] text-amber-800";
+            }
+            if (score >= 90) {
+                bChampion.className = "p-3 border border-red-200 rounded-xl bg-red-50 text-center space-y-1 transition transform hover:scale-105 animate-pulse";
+                bChampion.querySelector('h4').className = "font-bold text-[10px] text-red-800";
+            }
+        }
+
+        // Detailed Review Generator list with collapsibles
+        function renderDetailedReview() {
+            const container = document.getElementById('analysis-review-container');
+            container.innerHTML = '';
+
+            const currentQuestions = window.activeQuizQuestions;
+
+            currentQuestions.forEach((q, idx) => {
+                const userAns = answers[q.id];
+                const isCorrect = (userAns === q.answer);
+                
+                const card = document.createElement('div');
+                card.className = "py-4 space-y-2";
+
+                let badgeHTML = "";
+                if (!userAns) {
+                    badgeHTML = `<span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Dilewati</span>`;
+                } else if (isCorrect) {
+                    badgeHTML = `<span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Benar</span>`;
+                } else {
+                    badgeHTML = `<span class="bg-red-100 text-red-800 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Salah</span>`;
+                }
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between gap-2">
+                        <span class="text-[9px] text-amber-600 font-bold uppercase tracking-wider">${q.category} • Soal ${idx + 1}</span>
+                        ${badgeHTML}
+                    </div>
+                    <h4 class="text-xs md:text-sm font-semibold text-slate-800 leading-relaxed">${q.text}</h4>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 pt-1 text-[11px]">
+                        <div class="p-2 border rounded-lg bg-slate-50">
+                            <span class="text-slate-400 font-medium">Jawaban Anda:</span> 
+                            <span class="font-bold ${!userAns ? 'text-slate-500' : isCorrect ? 'text-emerald-600' : 'text-red-500'}">
+                                ${userAns ? `${userAns}. ${getOptionText(q, userAns)}` : "Tidak Menjawab"}
+                            </span>
+                        </div>
+                        <div class="p-2 border rounded-lg bg-emerald-50/50 border-emerald-100">
+                            <span class="text-emerald-800 font-medium">Kunci Jawaban:</span> 
+                            <span class="font-bold text-emerald-700">${q.answer}. ${getOptionText(q, q.answer)}</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50/20 border border-amber-100 p-3 rounded-lg text-[11px] text-slate-600 leading-relaxed mt-2 italic">
+                        <strong class="text-slate-700 font-bold">Pembahasan Akademis:</strong> ${q.discussion}
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // Option text compiler helper
+        function getOptionText(q, key) {
+            const opt = q.options.find(o => o.key === key);
+            return opt ? opt.text : "";
+        }
+
+        function navigateToDashboard() {
+            sounds.click();
+            document.getElementById('section-quiz').classList.add('hidden');
+            document.getElementById('section-analysis').classList.add('hidden');
+            document.getElementById('section-dashboard').classList.remove('hidden');
+        }
+
+        // ================= GURU PORTAL: QUESTION BANK MANAGEMENT =================
+
+        function openQuestionModal() {
+            sounds.click();
+            document.getElementById('add-question-modal').classList.remove('hidden');
+        }
+
+        function closeQuestionModal() {
+            sounds.click();
+            document.getElementById('add-question-modal').classList.add('hidden');
+        }
+
+        function saveNewQuestion() {
+            const cat = document.getElementById('form-category').value;
+            const text = document.getElementById('form-text').value.trim();
+            const optA = document.getElementById('form-optA').value.trim();
+            const optB = document.getElementById('form-optB').value.trim();
+            const optC = document.getElementById('form-optC').value.trim();
+            const optD = document.getElementById('form-optD').value.trim();
+            const ans = document.getElementById('form-answer').value;
+            const disc = document.getElementById('form-discussion').value.trim();
+
+            if (!text || !optA || !optB || !optC || !optD) {
+                showToast("Mohon lengkapi seluruh isian soal!", "⚠️");
+                return;
+            }
+
+            const newQ = {
+                id: Date.now(),
+                category: cat,
+                text: text,
+                options: [
+                    { key: "A", text: optA },
+                    { key: "B", text: optB },
+                    { key: "C", text: optC },
+                    { key: "D", text: optD }
+                ],
+                answer: ans,
+                discussion: disc || "Pembahasan standar untuk materi latihan."
+            };
+
+            questions.push(newQ);
+            localStorage.setItem('lccm_questions', JSON.stringify(questions));
+            updateDashboardStats();
+            
+            // clear form
+            document.getElementById('form-text').value = '';
+            document.getElementById('form-optA').value = '';
+            document.getElementById('form-optB').value = '';
+            document.getElementById('form-optC').value = '';
+            document.getElementById('form-optD').value = '';
+            document.getElementById('form-discussion').value = '';
+
+            closeQuestionModal();
+            sounds.correct();
+            showToast("Soal kustom baru sukses disimpan ke browser!", "✅");
+        }
+
+        // Reset all Questions to default set
+        function confirmResetQuestions() {
+            sounds.flag();
+            showCustomConfirm(
+                "Kembalikan Bank Soal?",
+                "Tindakan ini akan menghapus seluruh soal kustom buatan Anda dan mengembalikan 100 pertanyaan bawaan asli sistem.",
+                () => {
+                    questions = [...defaultQuestions];
+                    localStorage.setItem('lccm_questions', JSON.stringify(questions));
+                    updateDashboardStats();
+                    sounds.click();
+                    showToast("Bank soal berhasil di-reset!", "🔄");
+                }
+            );
+        }
+
+        // Export Questions to JSON File (Portable)
+        function exportQuestions() {
+            sounds.click();
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(questions, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `bank_soal_lccm_${Date.now()}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+            showToast("Sukses mengekspor bank soal!", "📥");
+        }
+
+        // Import Questions from JSON File (Portable)
+        function importQuestions(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const imported = JSON.parse(e.target.result);
+                    if (Array.isArray(imported) && imported.length > 0 && imported[0].text && imported[0].options) {
+                        questions = imported;
+                        localStorage.setItem('lccm_questions', JSON.stringify(questions));
+                        updateDashboardStats();
+                        sounds.correct();
+                        showToast(`Berhasil mengunggah ${imported.length} soal baru!`, "✅");
+                    } else {
+                        showToast("Struktur format file JSON tidak valid!", "⚠️");
+                    }
+                } catch(err) {
+                    showToast("Gagal mengurai file JSON!", "⚠️");
+                }
+            };
+            reader.readAsText(file);
+        }
+    </script>
+</body>
+</html>
